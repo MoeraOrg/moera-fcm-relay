@@ -1,4 +1,4 @@
-package org.moera.relay.fcm;
+package org.moera.relay.push;
 
 import java.security.Security;
 

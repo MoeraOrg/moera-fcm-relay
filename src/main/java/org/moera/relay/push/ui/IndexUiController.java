@@ -1,8 +1,8 @@
-package org.moera.relay.fcm.ui;
+package org.moera.relay.push.ui;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.moera.relay.fcm.util.UriUtil;
+import org.moera.relay.push.util.UriUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

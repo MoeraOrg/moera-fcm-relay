@@ -1,4 +1,4 @@
-package org.moera.relay.fcm.util;
+package org.moera.relay.push.util;
 
 import javax.servlet.http.HttpServletRequest;
 
