@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.googlecode.jsonrpc4j.JsonRpcServer;
-import org.moera.naming.rpc.NamingService;
 import org.moera.relay.push.rpc.exception.ServiceErrorResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +30,7 @@ public class PushRelayController {
 
     @PostConstruct
     protected void init() {
-        jsonRpcServer = new JsonRpcServer(new ObjectMapper(), pushRelayService, NamingService.class);
+        jsonRpcServer = new JsonRpcServer(new ObjectMapper(), pushRelayService, PushRelayService.class);
         jsonRpcServer.setAllowExtraParams(true);
         jsonRpcServer.setAllowLessParams(true);
         jsonRpcServer.setErrorResolver(serviceErrorResolver);
