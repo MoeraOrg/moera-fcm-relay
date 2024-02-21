@@ -9,16 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.googlecode.jsonrpc4j.JsonRpcServer;
 import org.moera.relay.push.rpc.exception.ServiceErrorResolver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class PushRelayController {
-
-    private static final Logger log = LoggerFactory.getLogger(PushRelayController.class);
 
     private JsonRpcServer jsonRpcServer;
 
