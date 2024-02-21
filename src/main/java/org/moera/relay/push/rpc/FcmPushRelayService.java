@@ -2,6 +2,8 @@ package org.moera.relay.push.rpc;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Objects;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -10,6 +12,7 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.messaging.AndroidConfig;
+import com.google.firebase.messaging.AndroidNotification;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import com.google.firebase.messaging.Message;
@@ -83,22 +86,42 @@ public class FcmPushRelayService implements PushRelayService {
         client.setNodeName(nodeName);
         client.setLang(lang);
         clientRepository.save(client);
+    }
 
-        Message message = Message.builder()
-                .setNotification(Notification.builder()
-                        .setTitle("Hello")
-                        .setBody("Hello, world!")
-                        .build())
-                .setAndroidConfig(AndroidConfig.builder()
-                        .setTtl(24 * 60 * 60 * 1000)
-                        .build())
-                .setToken(clientId)
-                .build();
-        try {
-            String response = FirebaseMessaging.getInstance().send(message);
-            log.info("Message sent: {}", response);
-        } catch (FirebaseMessagingException e) {
-            log.error("Error sending message: {} ({})", e.getMessagingErrorCode(), e.getMessage());
+    @Override
+    @Transactional
+    public void feedStatus(String feedName, int notViewed, String nodeName, byte[] signature) {
+        Collection<Client> clients = clientRepository.findByNodeName(nodeName);
+        if (clients.isEmpty()) {
+            throw new ServiceException(ServiceError.NO_CLIENTS);
+        }
+
+        if (!Objects.equals(feedName, "news")) {
+            return;
+        }
+
+        // TODO check signature
+
+        for (Client client : clients) {
+            Message message = Message.builder()
+                    .setNotification(Notification.builder()
+                            .setBody(String.format("You have %d new posts", notViewed))
+                            .build())
+                    .setAndroidConfig(AndroidConfig.builder()
+                            .setTtl(24 * 60 * 60 * 1000)
+                            .setNotification(AndroidNotification.builder()
+                                    .setTag("news")
+                                    .build())
+                            .build())
+                    .putData("url", "https://moera.page/@/~/news")
+                    .setToken(client.getClientId())
+                    .build();
+            try {
+                String response = FirebaseMessaging.getInstance().send(message);
+                log.info("Message sent: {}", response);
+            } catch (FirebaseMessagingException e) {
+                log.error("Error sending message: {} ({})", e.getMessagingErrorCode(), e.getMessage());
+            }
         }
     }
 
