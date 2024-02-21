@@ -13,8 +13,6 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.messaging.AndroidConfig;
 import com.google.firebase.messaging.AndroidNotification;
-import com.google.firebase.messaging.FirebaseMessaging;
-import com.google.firebase.messaging.FirebaseMessagingException;
 import com.google.firebase.messaging.Message;
 import com.google.firebase.messaging.Notification;
 import com.googlecode.jsonrpc4j.spring.AutoJsonRpcServiceImpl;
@@ -26,10 +24,10 @@ import org.moera.relay.push.rpc.exception.ServiceError;
 import org.moera.relay.push.rpc.exception.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
-@Component
+@Service
 @AutoJsonRpcServiceImpl
 public class FcmPushRelayService implements PushRelayService {
 
@@ -43,6 +41,9 @@ public class FcmPushRelayService implements PushRelayService {
 
     @Inject
     private ClientRepository clientRepository;
+
+    @Inject
+    private FcmDelivery fcmDelivery;
 
     @PostConstruct
     public void init() {
@@ -116,12 +117,7 @@ public class FcmPushRelayService implements PushRelayService {
                     .putData("url", "https://moera.page/@/~/news")
                     .setToken(client.getClientId())
                     .build();
-            try {
-                String response = FirebaseMessaging.getInstance().send(message);
-                log.info("Message sent: {}", response);
-            } catch (FirebaseMessagingException e) {
-                log.error("Error sending message: {} ({})", e.getMessagingErrorCode(), e.getMessage());
-            }
+            fcmDelivery.send(message, client.getClientId());
         }
     }
 
