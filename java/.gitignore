@@ -1,0 +1,8 @@
+*.iml
+.*.swp
+*.log
+.idea/
+target/
+log/
+application-dev.yml
+moera-client-android-firebase-account.json
