@@ -1,0 +1,12 @@
+#!/bin/bash
+
+[ -d target/ ] && rm -r target/
+
+echo "Compiling TypeScript..."
+yarn tsc || exit 1
+
+cp -r public/ .env target/
+
+echo "Starting..."
+cd target/
+node index
