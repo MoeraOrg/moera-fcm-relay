@@ -119,6 +119,8 @@ public class FcmPushRelayService implements PushRelayService {
                     .setAndroidConfig(AndroidConfig.builder()
                             .setTtl(24 * 60 * 60 * 1000)
                             .setNotification(AndroidNotification.builder()
+                                    .setIcon("fa_newspaper")
+                                    .setColor("#0099cc")
                                     .setTag("news")
                                     .build())
                             .build())
