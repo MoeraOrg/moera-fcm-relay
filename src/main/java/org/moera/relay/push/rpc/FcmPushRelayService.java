@@ -3,6 +3,7 @@ package org.moera.relay.push.rpc;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Map;
 import java.util.Objects;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -44,6 +45,9 @@ public class FcmPushRelayService implements PushRelayService {
 
     @Inject
     private FcmDelivery fcmDelivery;
+
+    @Inject
+    private MessageGenerator messageGenerator;
 
     @PostConstruct
     public void init() {
@@ -104,9 +108,13 @@ public class FcmPushRelayService implements PushRelayService {
         // TODO check signature
 
         for (Client client : clients) {
+            String body = messageGenerator.format(
+                    client.getLang(),
+                    "new-posts-newsfeed",
+                    Map.of("count", notViewed));
             Message message = Message.builder()
                     .setNotification(Notification.builder()
-                            .setBody(String.format("You have %d new posts", notViewed))
+                            .setBody(body)
                             .build())
                     .setAndroidConfig(AndroidConfig.builder()
                             .setTtl(24 * 60 * 60 * 1000)
