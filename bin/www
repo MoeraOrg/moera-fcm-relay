@@ -7,10 +7,13 @@
 var app = require('../app');
 var debug = require('debug')('moera-fcm-relay:server');
 var http = require('http');
+var dotenv = require('dotenv');
 
 /**
  * Get port from environment and store in Express.
  */
+
+dotenv.config();
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
