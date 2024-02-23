@@ -6,6 +6,8 @@ echo "Compiling TypeScript..."
 yarn tsc || exit 1
 
 cp -r public/ views/ .env target/
+mkdir target/node_modules
+mv target/pushrelay target/node_modules
 
 echo "Starting..."
 cd target/
