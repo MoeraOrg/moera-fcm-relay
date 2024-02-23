@@ -7,7 +7,7 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT || 3000;
 
-app.get("/", (req: Request, res: Response) => {
+app.get(["/", "/index.html"], (req: Request, res: Response) => {
     let html = fs.readFileSync("views/index.html").toString();
     const endpointUrl = `${req.protocol}://${req.hostname}/moera-push-relay/`;
     html = html.replace("{{endpointUri}}", endpointUrl)
