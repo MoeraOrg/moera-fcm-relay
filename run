@@ -5,7 +5,7 @@
 echo "Compiling TypeScript..."
 yarn tsc || exit 1
 
-cp -r public/ .env target/
+cp -r public/ views/ .env target/
 
 echo "Starting..."
 cd target/
