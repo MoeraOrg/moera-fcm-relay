@@ -1,11 +1,13 @@
 import { createJSONRPCErrorResponse, JSONRPCRequest, JSONRPCServer, JSONRPCServerMiddlewareNext } from 'json-rpc-2.0';
 
 import register from "pushrelay/rpc/register";
+import feedStatus from "pushrelay/rpc/feed-status";
 import { ServiceError } from "pushrelay/rpc/errors";
 
 const service = new JSONRPCServer({errorListener: () => {}});
 service.applyMiddleware(exceptionMiddleware);
 service.addMethod("register", register);
+service.addMethod("feedStatus", feedStatus);
 
 async function exceptionMiddleware(
     next: JSONRPCServerMiddlewareNext<void>, request: JSONRPCRequest, serverParams: void

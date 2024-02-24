@@ -1,5 +1,3 @@
-import { DataTypes } from 'sequelize';
-
 import { ServiceError, ServiceException } from "pushrelay/rpc/errors";
 import { Client } from "pushrelay/data/models/Client";
 

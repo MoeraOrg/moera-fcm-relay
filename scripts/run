@@ -5,7 +5,7 @@
 echo "Compiling TypeScript..."
 yarn tsc || exit 1
 
-cp -r migrations/ public/ views/ .env* target/
+cp -r migrations/ public/ views/ .env* moera-client-android-firebase-account.json target/
 mkdir target/node_modules
 mv target/pushrelay target/node_modules
 
