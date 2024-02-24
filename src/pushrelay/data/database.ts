@@ -1,5 +1,6 @@
+import { Sequelize } from 'sequelize-typescript';
+import { DataTypes, QueryTypes } from 'sequelize';
 import * as process from 'process';
-import { DataTypes, QueryTypes, Sequelize } from 'sequelize';
 import fs from 'fs/promises';
 
 export let database: Sequelize;
@@ -15,7 +16,8 @@ export async function initDatabase(): Promise<void> {
             timestamps: false,
             underscored: true,
             charset: 'utf8'
-        }
+        },
+        models: [__dirname + "/models/"]
     });
     await database.authenticate();
 
