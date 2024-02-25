@@ -1,0 +1,3 @@
+{
+  "new-posts-newsfeed": "{count, plural, =0 {Nie masz nowych postów} =1 {Masz nowy post} one {Masz # nowy post} few {Masz # nowe posty} other {Masz # nowych postów}} w swoim kanale aktualności"
+}

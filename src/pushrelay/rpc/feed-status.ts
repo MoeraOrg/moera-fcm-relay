@@ -1,6 +1,8 @@
+import { getMessaging } from 'firebase-admin/messaging';
+import { t } from 'i18next';
+
 import { ServiceError, ServiceException } from "pushrelay/rpc/errors";
 import { Client } from "pushrelay/data/models/Client";
-import { getMessaging } from "firebase-admin/messaging";
 
 interface Params {
     feedName?: string | null;
@@ -25,11 +27,7 @@ export default async function feedStatus({feedName, notViewed, nodeName, signatu
     }
 
     for (const client of clients) {
-        // String body = messageGenerator.format(
-        //     client.getLang(),
-        //     "new-posts-newsfeed",
-        //     Map.of("count", notViewed));
-        const body = "Hi!";
+        const body = t("new-posts-newsfeed", {count: notViewed ?? 0, lng: client.lang ?? "en"});
         const message = {
             notification: {
                 body

@@ -3,7 +3,7 @@ import { DataTypes, QueryTypes } from 'sequelize';
 import * as process from 'process';
 import fs from 'fs/promises';
 
-export let database: Sequelize;
+export let index: Sequelize;
 
 export async function initDatabase(): Promise<void> {
     const connectionUrl = process.env.DATABASE;
@@ -11,15 +11,16 @@ export async function initDatabase(): Promise<void> {
         console.error("moera-fcm-relay: database connection URL ('DATABASE' environment variable) is not set");
         process.exit(1);
     }
-    database = new Sequelize(connectionUrl, {
+    index = new Sequelize(connectionUrl, {
         define: {
             timestamps: false,
             underscored: true,
             charset: 'utf8'
         },
-        models: [__dirname + "/models/"]
+        models: [__dirname + "/models/"],
+        logging: false
     });
-    await database.authenticate();
+    await index.authenticate();
 
     await migrate();
 }
@@ -36,14 +37,14 @@ async function migrate(): Promise<void> {
 }
 
 async function getCurrentVersion(): Promise<number> {
-    const qi = database.getQueryInterface();
+    const qi = index.getQueryInterface();
 
     let currentVersion = 0;
     if (!await qi.tableExists("version")) {
         await qi.createTable("version", {version: {type: DataTypes.INTEGER}});
         await qi.bulkInsert("version", [{version: 0}]);
     } else {
-        const version: any[] = await database.query("select version from version", {type: QueryTypes.SELECT});
+        const version: any[] = await index.query("select version from version", {type: QueryTypes.SELECT});
         currentVersion = version[0].version;
     }
     return currentVersion;
@@ -73,18 +74,18 @@ async function migrateFrom(version: number, migrations: Migration[]): Promise<vo
             continue;
         }
 
-        await database.transaction(async transaction => {
+        await index.transaction(async transaction => {
             const file = await fs.open(migration.fileName);
             let sql = '';
             for await (const line of file.readLines()) {
                 sql += line;
                 if (sql.match(/;\s*$/)) {
-                    await database.query(sql, {transaction});
+                    await index.query(sql, {transaction});
                     sql = '';
                 }
             }
 
-            await database.query(
+            await index.query(
                 "update version set version=:version",
                 {replacements: {version: migration.n}, type: QueryTypes.UPDATE, transaction}
             );

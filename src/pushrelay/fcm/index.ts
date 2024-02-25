@@ -1,7 +1,7 @@
 import { App, initializeApp } from 'firebase-admin/app';
 
-export let fcm: App;
+export let index: App;
 
 export function initFcm() {
-    fcm = initializeApp();
+    index = initializeApp();
 }
