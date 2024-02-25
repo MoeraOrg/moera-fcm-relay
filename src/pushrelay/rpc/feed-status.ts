@@ -1,9 +1,9 @@
-import { getMessaging } from 'firebase-admin/messaging';
 import { t } from 'i18next';
 
 import { ServiceError, ServiceException } from "pushrelay/rpc/errors";
 import { Client } from "pushrelay/data/models/Client";
 import { getLogger } from "pushrelay/rpc";
+import { sendMessage } from "pushrelay/fcm";
 
 interface Params {
     feedName?: string | null;
@@ -49,8 +49,7 @@ export default async function feedStatus({feedName, notViewed, nodeName, signatu
             },
             token: client.clientId
         }
-        // fcmDelivery.send(message, client.getClientId());
-        getMessaging().send(message);
+        sendMessage(message);
     }
 
 }

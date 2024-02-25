@@ -30,7 +30,7 @@ export default async function register({clientId, nodeName, lang, signature}: Pa
 
     // TODO check node name and signature
 
-    let client: Client | null = await Client.findOne({where: {clientId}});
+    let client = await Client.findOne({where: {clientId}});
     if (client == null) {
         client = Client.build({clientId, nodeName, lang, createdAt: new Date()});
         await client.save();
