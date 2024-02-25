@@ -3,6 +3,7 @@ import { t } from 'i18next';
 
 import { ServiceError, ServiceException } from "pushrelay/rpc/errors";
 import { Client } from "pushrelay/data/models/Client";
+import logger from "pushrelay/logger";
 
 interface Params {
     feedName?: string | null;
@@ -12,7 +13,10 @@ interface Params {
 }
 
 export default async function feedStatus({feedName, notViewed, nodeName, signature}: Params): Promise<void> {
+    logger.info(`[rpc]: Reporting feed status for node '${nodeName}' feed '${feedName}', ${notViewed} not viewed`);
+
     if (feedName !== "news") {
+        logger.info(`[rpc]: Feed '${feedName}' is ignored`);
         return;
     }
     if (!nodeName) {

@@ -2,6 +2,7 @@ import express, { Express, Request, Response } from 'express';
 import fs from 'fs/promises';
 
 import rpcService from "pushrelay/rpc/service";
+import logger from "pushrelay/logger";
 
 export function initApp(): void {
     const app: Express = express();
@@ -29,6 +30,6 @@ export function initApp(): void {
     });
 
     app.listen(port, () => {
-        console.log(`[server]: Server is running at http://localhost:${port}`);
+        logger.info(`[server]: Server is running at http://localhost:${port}`);
     });
 }

@@ -1,5 +1,6 @@
 import { ServiceError, ServiceException } from "pushrelay/rpc/errors";
 import { Client } from "pushrelay/data/models/Client";
+import logger from "pushrelay/logger";
 
 const CLIENT_ID_MAX_LENGTH = 256;
 const LANG_MAX_LENGTH = 8;
@@ -12,6 +13,8 @@ interface Params {
 }
 
 export default async function register({clientId, nodeName, lang, signature}: Params): Promise<void> {
+    logger.info(`[rpc]: Registering client '${(clientId ?? '').substring(0, 6)}' for node '${nodeName}'`);
+
     if (!clientId) {
         throw new ServiceException(ServiceError.CLIENT_ID_EMPTY);
     }

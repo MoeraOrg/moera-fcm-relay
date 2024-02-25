@@ -29,16 +29,14 @@ export function tGender(gender: string | null | undefined): string {
     return gender != null ? gender.toLowerCase() : "";
 }
 
-export function initI18n() {
-    i18n.use(ICU)
-        .init({
-            resources: LANGUAGE_RESOURCES,
-            fallbackLng: "en",
-            supportedLngs: LANGUAGES_SUPPORTED,
-            ns: ['message'],
-            defaultNS: 'message',
-            interpolation: {
-                escapeValue: false,
-            }
-        });
-}
+i18n.use(ICU)
+    .init({
+        resources: LANGUAGE_RESOURCES,
+        fallbackLng: "en",
+        supportedLngs: LANGUAGES_SUPPORTED,
+        ns: ['message'],
+        defaultNS: 'message',
+        interpolation: {
+            escapeValue: false,
+        }
+    });

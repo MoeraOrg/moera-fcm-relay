@@ -2,7 +2,8 @@ import { createJSONRPCErrorResponse, JSONRPCRequest, JSONRPCServer, JSONRPCServe
 
 import register from "pushrelay/rpc/register";
 import feedStatus from "pushrelay/rpc/feed-status";
-import { ServiceError } from "pushrelay/rpc/errors";
+import { ServiceException } from "pushrelay/rpc/errors";
+import logger from "pushrelay/logger";
 
 const service = new JSONRPCServer({errorListener: () => {}});
 service.applyMiddleware(exceptionMiddleware);
@@ -15,7 +16,8 @@ async function exceptionMiddleware(
     try {
         return await next(request, serverParams);
     } catch (error) {
-        if (error instanceof ServiceError) {
+        if (error instanceof ServiceException) {
+            logger.warn(`[rpc]: Returned error: ${error.message}`);
             return createJSONRPCErrorResponse(request.id ?? 0, error.rpcCode, error.message);
         } else {
             throw error;
