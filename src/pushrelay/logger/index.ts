@@ -1,12 +1,40 @@
-import { createLogger, format, transports } from 'winston';
+import { createLogger, format, Logger, transports } from 'winston';
+import DailyRotateFile from 'winston-daily-rotate-file';
+import * as process from 'process';
 
-const logger = createLogger({
-    format: format.combine(
-        format.timestamp({format: 'YYYY-MM-DD HH:mm:ss.SSS'}),
-        format.printf(({level, message, timestamp}) =>
-            `${timestamp} ${level.toUpperCase()} --- ${message}`)
-    ),
-    transports: [new transports.Console()]
-});
+let logger: Logger | null = null;
 
-export default logger;
+export function getLogger(): Logger {
+    if (logger == null) {
+        logger = createLogger({
+            format: format.combine(
+                format.timestamp({format: "YYYY-MM-DD HH:mm:ss.SSS"}),
+                format.printf(({timestamp, level, module, message}) =>
+                    `${timestamp} ${level.toUpperCase()} --- [${module ?? 'server'}]: ${message}`)
+            ),
+            transports: [
+                new transports.Console(),
+                new DailyRotateFile({
+                    filename: 'relay-%DATE%.log',
+                    dirname: process.env.LOG_DIR,
+                    datePattern: 'YYYY-MM-DD',
+                    zippedArchive: true,
+                    maxSize: '20m',
+                    maxFiles: '14d'
+                })
+            ]
+        });
+    }
+    return logger;
+}
+
+export function deriveLogger(module: string): (() => Logger) {
+    let logger: Logger | null = null;
+
+    return () => {
+        if (logger == null) {
+            logger = getLogger().child({module});
+        }
+        return logger;
+    }
+}
