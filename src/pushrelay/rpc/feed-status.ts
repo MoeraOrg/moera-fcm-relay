@@ -50,7 +50,7 @@ export default async function feedStatus({feedName, notViewed, nodeName, signatu
             token: client.clientId
         }
         // fcmDelivery.send(message, client.getClientId());
-        await getMessaging().send(message);
+        getMessaging().send(message);
     }
 
 }
