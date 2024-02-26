@@ -25,13 +25,13 @@ let delivering = false;
 
 export function sendMessage(message: TokenMessage): void {
     queue.push({message, createdAt: new Date()});
-    if (delivering) {
-        return;
-    }
     deliverMessages().then();
 }
 
 async function deliverMessages(): Promise<void> {
+    if (delivering) {
+        return;
+    }
     if (queue.length === 0) {
         return;
     }
