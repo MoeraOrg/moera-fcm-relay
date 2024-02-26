@@ -1,0 +1,44 @@
+#!/bin/bash
+
+CLIENT=../../moera-client-react
+
+cd `dirname $0`
+cp $CLIENT/src/api/node/{api-schemas.mjs,api-types.ts,api-validators.js} ../src/pushrelay/api/node
+sed -e 's|api/schema|pushrelay/api/schema|' \
+    < $CLIENT/src/api/node/api-validators.d.ts \
+    > ../src/pushrelay/api/node/api-validators.d.ts
+cp $CLIENT/src/api/schema.ts ../src/pushrelay/api
+cp $CLIENT/src/api/node-name.ts ../src/pushrelay/api
+
+cp $CLIENT/src/ui/feed/feeds.ts ../src/pushrelay/api/node/instant
+sed -e 's|"api"|"pushrelay/api"|' \
+    -e 's|"ui/instant/instant-elements"|"pushrelay/api/node/instant/instant-elements"|' \
+    -e 's|"ui/feed/feeds"|"pushrelay/api/node/instant/feeds"|' \
+    -e 's|"i18n"|"pushrelay/i18n"|' \
+    < $CLIENT/src/ui/instant/instant-summaries.ts \
+    > ../src/pushrelay/api/node/instant/instant-summaries.ts
+sed -e "/'react'/d" \
+    -e "/@fortawesome/d" \
+    -e "/\"state\//d" \
+    -e "/^ *fa/d" \
+    -e 's|"api"|"pushrelay/api"|' \
+    -e 's|"ui/instant/instant-summaries"|"pushrelay/api/node/instant/instant-summaries"|' \
+    -e "/Buttons/d" \
+    -e "/Action/d" \
+    -e "s/| ExtStoryInfo//" \
+    -e "s/IconProp/string/" \
+    -e "s/story.postingId/null/" \
+    -e "/icon:/{" \
+    -e "s/ fa/ \"fa/" \
+    -e "s/,$/\",/" \
+    -e "s/\([a-z]\)\([A-Z]\)/\1_\L\2/g" \
+    -e "}" \
+    -e "s/var(--bs-green)/#198754/" \
+    -e "s/var(--bs-blue)/#0d6efd/" \
+    -e "s/var(--bs-indigo)/#6610f2/" \
+    -e "s/var(--bs-teal)/#20c997/" \
+    -e "s/var(--green-light)/#42d042/" \
+    -e "s/var(--incorrect)/#dc3545/" \
+    -e "s/var(--correct)/#228b22/" \
+    < $CLIENT/src/ui/instant/instant-types.ts \
+    > ../src/pushrelay/api/node/instant/instant-types.ts

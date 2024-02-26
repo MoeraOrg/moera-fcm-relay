@@ -5,6 +5,15 @@
 echo "Compiling TypeScript..."
 yarn tsc || exit 1
 
+echo "Copying files..."
+find src/ -type f -not -name '*.ts' | \
+    while read fname; do \
+        target=`dirname $fname`
+        target=target/${target##src/}
+        mkdir -p $target
+        cp $fname $target
+    done
+
 cp -r migrations/ public/ views/ .env* moera-client-android-firebase-account.json target/
 cp -r src/pushrelay/i18n/locales/ target/pushrelay/i18n/
 mkdir target/node_modules
