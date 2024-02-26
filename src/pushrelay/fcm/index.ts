@@ -86,6 +86,7 @@ async function postpone(message: StampedMessage, error: FirebaseError | undefine
     switch (error?.code) {
         case "messaging/mismatched-credential":
         case "messaging/invalid-registration-token":
+        case "messaging/invalid-argument": // Also means that the token is invalid
         case "messaging/registration-token-not-registered":
             await unregister(message.message.token);
             break;
