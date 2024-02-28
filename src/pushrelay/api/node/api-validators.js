@@ -1,7 +1,7 @@
 // This file is generated
 
 "use strict";
-export const CommentOperations = validate11;
+exports.CommentOperations = validate11;
 const schema12 = {"type":"object","properties":{"view":{"type":"string","nullable":true},"edit":{"type":"string","nullable":true},"delete":{"type":"string","nullable":true},"viewReactions":{"type":"string","nullable":true},"viewNegativeReactions":{"type":"string","nullable":true},"viewReactionTotals":{"type":"string","nullable":true},"viewNegativeReactionTotals":{"type":"string","nullable":true},"viewReactionRatios":{"type":"string","nullable":true},"viewNegativeReactionRatios":{"type":"string","nullable":true},"addReaction":{"type":"string","nullable":true},"addNegativeReaction":{"type":"string","nullable":true}},"additionalProperties":false};
 const func2 = Object.prototype.hasOwnProperty;
 
@@ -488,7 +488,7 @@ validate11.errors = vErrors;
 return errors === 0;
 }
 
-export const ContactOperations = validate12;
+exports.ContactOperations = validate12;
 const schema13 = {"type":"object","properties":{"viewFeedSubscriber":{"type":"string","nullable":true},"viewFeedSubscription":{"type":"string","nullable":true},"viewFriend":{"type":"string","nullable":true},"viewFriendOf":{"type":"string","nullable":true},"viewBlock":{"type":"string","nullable":true},"viewBlockBy":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate12(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -764,7 +764,7 @@ validate12.errors = vErrors;
 return errors === 0;
 }
 
-export const FeedOperations = validate13;
+exports.FeedOperations = validate13;
 const schema14 = {"type":"object","properties":{"add":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate13(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -825,7 +825,7 @@ validate13.errors = vErrors;
 return errors === 0;
 }
 
-export const FriendOperations = validate14;
+exports.FriendOperations = validate14;
 const schema15 = {"type":"object","properties":{"view":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate14(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -886,7 +886,7 @@ validate14.errors = vErrors;
 return errors === 0;
 }
 
-export const FriendGroupOperations = validate15;
+exports.FriendGroupOperations = validate15;
 const schema16 = {"type":"object","properties":{"view":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate15(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -947,7 +947,7 @@ validate15.errors = vErrors;
 return errors === 0;
 }
 
-export const NodeNameOperations = validate16;
+exports.NodeNameOperations = validate16;
 const schema17 = {"type":"object","properties":{"manage":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate16(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -1008,7 +1008,7 @@ validate16.errors = vErrors;
 return errors === 0;
 }
 
-export const PeopleOperations = validate17;
+exports.PeopleOperations = validate17;
 const schema18 = {"type":"object","properties":{"viewSubscribers":{"type":"string","nullable":true},"viewSubscriptions":{"type":"string","nullable":true},"viewFriends":{"type":"string","nullable":true},"viewFriendOfs":{"type":"string","nullable":true},"viewBlocked":{"type":"string","nullable":true},"viewBlockedBy":{"type":"string","nullable":true},"viewSubscribersTotal":{"type":"string","nullable":true},"viewSubscriptionsTotal":{"type":"string","nullable":true},"viewFriendsTotal":{"type":"string","nullable":true},"viewFriendOfsTotal":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate17(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -1452,7 +1452,7 @@ validate17.errors = vErrors;
 return errors === 0;
 }
 
-export const PostingOperations = validate18;
+exports.PostingOperations = validate18;
 const schema19 = {"type":"object","properties":{"view":{"type":"string","nullable":true},"edit":{"type":"string","nullable":true},"delete":{"type":"string","nullable":true},"viewComments":{"type":"string","nullable":true},"addComment":{"type":"string","nullable":true},"overrideComment":{"type":"string","nullable":true},"viewReactions":{"type":"string","nullable":true},"viewNegativeReactions":{"type":"string","nullable":true},"viewReactionTotals":{"type":"string","nullable":true},"viewNegativeReactionTotals":{"type":"string","nullable":true},"viewReactionRatios":{"type":"string","nullable":true},"viewNegativeReactionRatios":{"type":"string","nullable":true},"addReaction":{"type":"string","nullable":true},"addNegativeReaction":{"type":"string","nullable":true},"overrideReaction":{"type":"string","nullable":true},"overrideCommentReaction":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate18(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -2148,7 +2148,7 @@ validate18.errors = vErrors;
 return errors === 0;
 }
 
-export const PrivateMediaFileOperations = validate19;
+exports.PrivateMediaFileOperations = validate19;
 const schema20 = {"type":"object","properties":{"view":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate19(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -2209,7 +2209,7 @@ validate19.errors = vErrors;
 return errors === 0;
 }
 
-export const ProfileOperations = validate20;
+exports.ProfileOperations = validate20;
 const schema21 = {"type":"object","properties":{"edit":{"type":"string","nullable":true},"viewEmail":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate20(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -2317,7 +2317,7 @@ validate20.errors = vErrors;
 return errors === 0;
 }
 
-export const ReactionOperations = validate21;
+exports.ReactionOperations = validate21;
 const schema22 = {"type":"object","properties":{"view":{"type":"string","nullable":true},"delete":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate21(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -2425,7 +2425,7 @@ validate21.errors = vErrors;
 return errors === 0;
 }
 
-export const StoryOperations = validate22;
+exports.StoryOperations = validate22;
 const schema23 = {"type":"object","properties":{"edit":{"type":"string","nullable":true},"delete":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate22(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -2533,7 +2533,7 @@ validate22.errors = vErrors;
 return errors === 0;
 }
 
-export const SubscriberOperations = validate23;
+exports.SubscriberOperations = validate23;
 const schema24 = {"type":"object","properties":{"view":{"type":"string","nullable":true},"delete":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate23(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -2641,7 +2641,7 @@ validate23.errors = vErrors;
 return errors === 0;
 }
 
-export const SubscriptionOperations = validate24;
+exports.SubscriptionOperations = validate24;
 const schema25 = {"type":"object","properties":{"view":{"type":"string","nullable":true},"delete":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate24(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -2749,7 +2749,7 @@ validate24.errors = vErrors;
 return errors === 0;
 }
 
-export const AcceptedReactions = validate25;
+exports.AcceptedReactions = validate25;
 const schema26 = {"type":"object","properties":{"positive":{"type":"string"},"negative":{"type":"string"}},"required":["positive","negative"],"additionalProperties":false};
 
 function validate25(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -2858,7 +2858,7 @@ validate25.errors = vErrors;
 return errors === 0;
 }
 
-export const AsyncOperationCreated = validate26;
+exports.AsyncOperationCreated = validate26;
 const schema27 = {"type":"object","properties":{"id":{"type":"string"}},"required":["id"],"additionalProperties":false};
 
 function validate26(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -2923,7 +2923,7 @@ validate26.errors = vErrors;
 return errors === 0;
 }
 
-export const AvatarImage = validate27;
+exports.AvatarImage = validate27;
 const schema28 = {"type":"object","properties":{"mediaId":{"type":"string"},"path":{"type":"string"},"width":{"type":"integer","nullable":true},"height":{"type":"integer","nullable":true},"shape":{"type":"string","nullable":true}},"required":["mediaId","path"],"additionalProperties":false};
 
 function validate27(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -3154,7 +3154,7 @@ validate27.errors = vErrors;
 return errors === 0;
 }
 
-export const AvatarInfo = validate28;
+exports.AvatarInfo = validate28;
 const schema29 = {"type":"object","properties":{"id":{"type":"string"},"mediaId":{"type":"string"},"path":{"type":"string"},"width":{"type":"integer","nullable":true},"height":{"type":"integer","nullable":true},"shape":{"type":"string","nullable":true},"ordinal":{"type":"integer"}},"required":["id","mediaId","path","ordinal"],"additionalProperties":false};
 
 function validate28(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -3461,7 +3461,7 @@ validate28.errors = vErrors;
 return errors === 0;
 }
 
-export const AvatarInfoArray = validate29;
+exports.AvatarInfoArray = validate29;
 const schema30 = {"type":"array","items":{"$ref":"node#/definitions/AvatarInfo"}};
 
 function validate29(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -3810,7 +3810,7 @@ validate29.errors = vErrors;
 return errors === 0;
 }
 
-export const AvatarOrdinal = validate30;
+exports.AvatarOrdinal = validate30;
 const schema32 = {"type":"object","properties":{"id":{"type":"string"},"ordinal":{"type":"integer"}},"required":["id","ordinal"],"additionalProperties":false};
 
 function validate30(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -3917,7 +3917,7 @@ validate30.errors = vErrors;
 return errors === 0;
 }
 
-export const AvatarOrdinalArray = validate31;
+exports.AvatarOrdinalArray = validate31;
 const schema33 = {"type":"array","items":{"$ref":"node#/definitions/AvatarOrdinal"}};
 
 function validate31(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -4066,7 +4066,7 @@ validate31.errors = vErrors;
 return errors === 0;
 }
 
-export const BlockedInstantInfo = validate32;
+exports.BlockedInstantInfo = validate32;
 const schema35 = {"type":"object","properties":{"id":{"type":"string"},"storyType":{"type":"string"},"entryId":{"type":"string","nullable":true},"remoteNodeName":{"type":"string","nullable":true},"remotePostingId":{"type":"string","nullable":true},"remoteOwnerName":{"type":"string","nullable":true},"createdAt":{"type":"integer"},"deadline":{"type":"integer","nullable":true}},"required":["id","storyType","createdAt"],"additionalProperties":false};
 
 function validate32(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -4420,7 +4420,7 @@ validate32.errors = vErrors;
 return errors === 0;
 }
 
-export const BlockedInstantInfoArray = validate33;
+exports.BlockedInstantInfoArray = validate33;
 const schema36 = {"type":"array","items":{"$ref":"node#/definitions/BlockedInstantInfo"}};
 
 function validate33(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -4816,7 +4816,7 @@ validate33.errors = vErrors;
 return errors === 0;
 }
 
-export const BlockedPostingInstantInfo = validate34;
+exports.BlockedPostingInstantInfo = validate34;
 const schema38 = {"type":"object","properties":{"id":{"type":"string"},"storyType":{"type":"string"},"remoteOwnerName":{"type":"string","nullable":true},"deadline":{"type":"integer","nullable":true}},"required":["id","storyType"],"additionalProperties":false};
 
 function validate34(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -5007,7 +5007,7 @@ validate34.errors = vErrors;
 return errors === 0;
 }
 
-export const BlockedUsersChecksums = validate35;
+exports.BlockedUsersChecksums = validate35;
 const schema39 = {"type":"object","properties":{"visibility":{"type":"integer"}},"required":["visibility"],"additionalProperties":false};
 
 function validate35(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -5070,7 +5070,7 @@ validate35.errors = vErrors;
 return errors === 0;
 }
 
-export const CarteInfo = validate36;
+exports.CarteInfo = validate36;
 const schema40 = {"type":"object","properties":{"carte":{"type":"string"},"beginning":{"type":"integer"},"deadline":{"type":"integer"},"permissions":{"type":"array","items":{"type":"string"},"nullable":true}},"required":["carte","beginning","deadline"],"additionalProperties":false};
 
 function validate36(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -5297,7 +5297,7 @@ validate36.errors = vErrors;
 return errors === 0;
 }
 
-export const CarteSet = validate37;
+exports.CarteSet = validate37;
 const schema41 = {"type":"object","properties":{"cartesIp":{"type":"string","nullable":true},"cartes":{"type":"array","items":{"$ref":"node#/definitions/CarteInfo"}},"createdAt":{"type":"integer"}},"required":["cartes","createdAt"],"additionalProperties":false};
 
 function validate37(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -5676,7 +5676,7 @@ validate37.errors = vErrors;
 return errors === 0;
 }
 
-export const ClientReactionInfo = validate38;
+exports.ClientReactionInfo = validate38;
 const schema43 = {"type":"object","properties":{"negative":{"type":"boolean"},"emoji":{"type":"integer"},"createdAt":{"type":"integer"},"deadline":{"type":"integer","nullable":true}},"required":["negative","emoji","createdAt"],"additionalProperties":false};
 
 function validate38(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -5860,7 +5860,7 @@ validate38.errors = vErrors;
 return errors === 0;
 }
 
-export const CommentTotalInfo = validate39;
+exports.CommentTotalInfo = validate39;
 const schema44 = {"type":"object","properties":{"total":{"type":"integer"}},"required":["total"],"additionalProperties":false};
 
 function validate39(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -5923,7 +5923,7 @@ validate39.errors = vErrors;
 return errors === 0;
 }
 
-export const ContactInfo = validate40;
+exports.ContactInfo = validate40;
 const schema45 = {"type":"object","properties":{"nodeName":{"type":"string"},"fullName":{"type":"string","nullable":true},"gender":{"type":"string","nullable":true},"avatar":{"anyOf":[{"$ref":"node#/definitions/AvatarImage","type":"object","nullable":true},{"type":"null"}]},"closeness":{"type":"number"},"hasFeedSubscriber":{"type":"boolean","nullable":true},"hasFeedSubscription":{"type":"boolean","nullable":true},"hasFriend":{"type":"boolean","nullable":true},"hasFriendOf":{"type":"boolean","nullable":true},"hasBlock":{"type":"boolean","nullable":true},"hasBlockBy":{"type":"boolean","nullable":true},"operations":{"anyOf":[{"$ref":"node#/definitions/ContactOperations","type":"object","nullable":true},{"type":"null"}]},"ownerOperations":{"anyOf":[{"$ref":"node#/definitions/ContactOperations","type":"object","nullable":true},{"type":"null"}]},"adminOperations":{"anyOf":[{"$ref":"node#/definitions/ContactOperations","type":"object","nullable":true},{"type":"null"}]}},"required":["nodeName","closeness"],"additionalProperties":false};
 
 function validate40(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -7985,7 +7985,7 @@ validate40.errors = vErrors;
 return errors === 0;
 }
 
-export const ContactInfoArray = validate41;
+exports.ContactInfoArray = validate41;
 const schema50 = {"type":"array","items":{"$ref":"node#/definitions/ContactInfo"}};
 
 function validate41(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -8039,7 +8039,7 @@ validate41.errors = vErrors;
 return errors === 0;
 }
 
-export const CredentialsCreated = validate43;
+exports.CredentialsCreated = validate43;
 const schema51 = {"type":"object","properties":{"created":{"type":"boolean"}},"required":["created"],"additionalProperties":false};
 
 function validate43(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -8104,7 +8104,7 @@ validate43.errors = vErrors;
 return errors === 0;
 }
 
-export const DeleteNodeStatus = validate44;
+exports.DeleteNodeStatus = validate44;
 const schema52 = {"type":"object","properties":{"requested":{"type":"boolean"}},"required":["requested"],"additionalProperties":false};
 
 function validate44(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -8169,7 +8169,7 @@ validate44.errors = vErrors;
 return errors === 0;
 }
 
-export const DomainAvailable = validate45;
+exports.DomainAvailable = validate45;
 const schema53 = {"type":"object","properties":{"name":{"type":"string"}},"required":["name"],"additionalProperties":false};
 
 function validate45(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -8234,7 +8234,7 @@ validate45.errors = vErrors;
 return errors === 0;
 }
 
-export const DomainInfo = validate46;
+exports.DomainInfo = validate46;
 const schema54 = {"type":"object","properties":{"name":{"type":"string"},"nodeId":{"type":"string"},"createdAt":{"type":"integer"}},"required":["name","nodeId","createdAt"],"additionalProperties":false};
 
 function validate46(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -8380,7 +8380,7 @@ validate46.errors = vErrors;
 return errors === 0;
 }
 
-export const DomainInfoArray = validate47;
+exports.DomainInfoArray = validate47;
 const schema55 = {"type":"array","items":{"$ref":"node#/definitions/DomainInfo"}};
 
 function validate47(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -8568,7 +8568,7 @@ validate47.errors = vErrors;
 return errors === 0;
 }
 
-export const EmailHint = validate48;
+exports.EmailHint = validate48;
 const schema57 = {"type":"object","properties":{"emailHint":{"type":"string"}},"required":["emailHint"],"additionalProperties":false};
 
 function validate48(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -8633,7 +8633,7 @@ validate48.errors = vErrors;
 return errors === 0;
 }
 
-export const FeedReference = validate49;
+exports.FeedReference = validate49;
 const schema58 = {"type":"object","properties":{"feedName":{"type":"string"},"publishedAt":{"type":"integer"},"pinned":{"type":"boolean","nullable":true},"moment":{"type":"integer"},"storyId":{"type":"string"},"operations":{"anyOf":[{"$ref":"node#/definitions/StoryOperations","type":"object","nullable":true},{"type":"null"}]}},"required":["feedName","publishedAt","moment","storyId"],"additionalProperties":false};
 
 function validate49(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -9082,7 +9082,7 @@ validate49.errors = vErrors;
 return errors === 0;
 }
 
-export const FeedStatus = validate50;
+exports.FeedStatus = validate50;
 const schema60 = {"type":"object","properties":{"total":{"type":"integer"},"totalPinned":{"type":"integer"},"lastMoment":{"type":"integer","nullable":true},"notViewed":{"type":"integer","nullable":true},"notRead":{"type":"integer","nullable":true},"notViewedMoment":{"type":"integer","nullable":true},"notReadMoment":{"type":"integer","nullable":true}},"required":["total","totalPinned"],"additionalProperties":false};
 
 function validate50(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -9387,7 +9387,7 @@ validate50.errors = vErrors;
 return errors === 0;
 }
 
-export const FeedWithStatus = validate51;
+exports.FeedWithStatus = validate51;
 const schema61 = {"type":"object","properties":{"feedName":{"type":"string"},"notViewed":{"type":"integer"},"notRead":{"type":"integer"}},"required":["feedName","notViewed","notRead"],"additionalProperties":false};
 
 function validate51(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -9531,7 +9531,7 @@ validate51.errors = vErrors;
 return errors === 0;
 }
 
-export const FriendGroupDetails = validate52;
+exports.FriendGroupDetails = validate52;
 const schema62 = {"type":"object","properties":{"id":{"type":"string"},"title":{"type":"string","nullable":true},"addedAt":{"type":"integer"},"operations":{"anyOf":[{"$ref":"node#/definitions/FriendOperations","type":"object","nullable":true},{"type":"null"}]}},"required":["id","addedAt"],"additionalProperties":false};
 
 function validate52(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -9851,7 +9851,7 @@ validate52.errors = vErrors;
 return errors === 0;
 }
 
-export const FriendGroupInfo = validate53;
+exports.FriendGroupInfo = validate53;
 const schema64 = {"type":"object","properties":{"id":{"type":"string"},"title":{"type":"string","nullable":true},"createdAt":{"type":"integer"},"operations":{"anyOf":[{"$ref":"node#/definitions/FriendGroupOperations","type":"object","nullable":true},{"type":"null"}]}},"required":["id","createdAt"],"additionalProperties":false};
 
 function validate53(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -10171,7 +10171,7 @@ validate53.errors = vErrors;
 return errors === 0;
 }
 
-export const FriendGroupInfoArray = validate54;
+exports.FriendGroupInfoArray = validate54;
 const schema66 = {"type":"array","items":{"$ref":"node#/definitions/FriendGroupInfo"}};
 
 function validate54(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -10225,7 +10225,7 @@ validate54.errors = vErrors;
 return errors === 0;
 }
 
-export const FriendGroupsFeatures = validate56;
+exports.FriendGroupsFeatures = validate56;
 const schema67 = {"type":"object","properties":{"available":{"type":"array","items":{"$ref":"node#/definitions/FriendGroupInfo"}},"memberOf":{"type":"array","items":{"$ref":"node#/definitions/FriendGroupDetails"},"nullable":true}},"required":["available"],"additionalProperties":false};
 
 function validate56(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -10367,7 +10367,7 @@ validate56.errors = vErrors;
 return errors === 0;
 }
 
-export const FriendInfo = validate59;
+exports.FriendInfo = validate59;
 const schema68 = {"type":"object","properties":{"nodeName":{"type":"string"},"contact":{"anyOf":[{"$ref":"node#/definitions/ContactInfo","type":"object","nullable":true},{"type":"null"}]},"groups":{"type":"array","items":{"$ref":"node#/definitions/FriendGroupDetails"},"nullable":true}},"required":["nodeName"],"additionalProperties":false};
 
 function validate59(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -10605,7 +10605,7 @@ validate59.errors = vErrors;
 return errors === 0;
 }
 
-export const FriendInfoArray = validate62;
+exports.FriendInfoArray = validate62;
 const schema69 = {"type":"array","items":{"$ref":"node#/definitions/FriendInfo"}};
 
 function validate62(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -10659,7 +10659,7 @@ validate62.errors = vErrors;
 return errors === 0;
 }
 
-export const FriendOfInfo = validate64;
+exports.FriendOfInfo = validate64;
 const schema70 = {"type":"object","properties":{"remoteNodeName":{"type":"string"},"contact":{"anyOf":[{"$ref":"node#/definitions/ContactInfo","type":"object","nullable":true},{"type":"null"}]},"groups":{"type":"array","items":{"$ref":"node#/definitions/FriendGroupDetails"},"nullable":true}},"required":["remoteNodeName"],"additionalProperties":false};
 
 function validate64(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -10897,7 +10897,7 @@ validate64.errors = vErrors;
 return errors === 0;
 }
 
-export const FriendOfInfoArray = validate67;
+exports.FriendOfInfoArray = validate67;
 const schema71 = {"type":"array","items":{"$ref":"node#/definitions/FriendOfInfo"}};
 
 function validate67(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -10951,7 +10951,7 @@ validate67.errors = vErrors;
 return errors === 0;
 }
 
-export const FundraiserInfo = validate69;
+exports.FundraiserInfo = validate69;
 const schema72 = {"type":"object","properties":{"title":{"type":"string"},"qrCode":{"type":"string","nullable":true},"text":{"type":"string","nullable":true},"href":{"type":"string","nullable":true}},"required":["title"],"additionalProperties":false};
 
 function validate69(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -11147,7 +11147,7 @@ validate69.errors = vErrors;
 return errors === 0;
 }
 
-export const LinkPreview = validate70;
+exports.LinkPreview = validate70;
 const schema73 = {"type":"object","properties":{"siteName":{"type":"string","nullable":true},"url":{"type":"string","nullable":true},"title":{"type":"string","nullable":true},"description":{"type":"string","nullable":true},"imageHash":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate70(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -11381,7 +11381,7 @@ validate70.errors = vErrors;
 return errors === 0;
 }
 
-export const LinkPreviewInfo = validate71;
+exports.LinkPreviewInfo = validate71;
 const schema74 = {"type":"object","properties":{"siteName":{"type":"string","nullable":true},"url":{"type":"string","nullable":true},"title":{"type":"string","nullable":true},"description":{"type":"string","nullable":true},"imageUrl":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate71(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -11615,7 +11615,7 @@ validate71.errors = vErrors;
 return errors === 0;
 }
 
-export const MediaFilePreviewInfo = validate72;
+exports.MediaFilePreviewInfo = validate72;
 const schema75 = {"type":"object","properties":{"targetWidth":{"type":"integer"},"width":{"type":"integer"},"height":{"type":"integer"},"original":{"type":"boolean","nullable":true}},"required":["targetWidth","width","height"],"additionalProperties":false};
 
 function validate72(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -11799,7 +11799,7 @@ validate72.errors = vErrors;
 return errors === 0;
 }
 
-export const NodeNameInfo = validate73;
+exports.NodeNameInfo = validate73;
 const schema76 = {"type":"object","properties":{"name":{"type":"string","nullable":true},"operationStatus":{"type":"string","nullable":true},"operationStatusUpdated":{"type":"integer","nullable":true},"operationErrorCode":{"type":"string","nullable":true},"operationErrorMessage":{"type":"string","nullable":true},"operations":{"anyOf":[{"$ref":"node#/definitions/NodeNameOperations","type":"object","nullable":true},{"type":"null"}]}},"additionalProperties":false};
 
 function validate73(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -12202,7 +12202,7 @@ validate73.errors = vErrors;
 return errors === 0;
 }
 
-export const PeopleGeneralInfo = validate74;
+exports.PeopleGeneralInfo = validate74;
 const schema78 = {"type":"object","properties":{"feedSubscribersTotal":{"type":"integer","nullable":true},"feedSubscriptionsTotal":{"type":"integer","nullable":true},"friendsTotal":{"type":"object","patternProperties":{"^.*$":{"type":"integer"}},"nullable":true},"friendOfsTotal":{"type":"integer","nullable":true},"blockedTotal":{"type":"integer","nullable":true},"blockedByTotal":{"type":"integer","nullable":true},"operations":{"anyOf":[{"$ref":"node#/definitions/PeopleOperations","type":"object","nullable":true},{"type":"null"}]}},"additionalProperties":false};
 const pattern0 = new RegExp("^.*$", "u");
 
@@ -13113,7 +13113,7 @@ validate74.errors = vErrors;
 return errors === 0;
 }
 
-export const PostingFeatures = validate75;
+exports.PostingFeatures = validate75;
 const schema80 = {"type":"object","properties":{"post":{"type":"boolean","nullable":true},"subjectPresent":{"type":"boolean"},"sourceFormats":{"type":"array","items":{"type":"string"}},"mediaMaxSize":{"type":"integer"},"imageRecommendedSize":{"type":"integer"},"imageRecommendedPixels":{"type":"integer"},"imageFormats":{"type":"array","items":{"type":"string"}}},"required":["subjectPresent","sourceFormats","mediaMaxSize","imageRecommendedSize","imageRecommendedPixels","imageFormats"],"additionalProperties":false};
 
 function validate75(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -13496,7 +13496,7 @@ validate75.errors = vErrors;
 return errors === 0;
 }
 
-export const PostingSourceInfo = validate76;
+exports.PostingSourceInfo = validate76;
 const schema81 = {"type":"object","properties":{"nodeName":{"type":"string"},"fullName":{"type":"string","nullable":true},"avatar":{"anyOf":[{"$ref":"node#/definitions/AvatarImage","type":"object","nullable":true},{"type":"null"}]},"feedName":{"type":"string"},"postingId":{"type":"string"},"createdAt":{"type":"integer"}},"required":["nodeName","feedName","postingId","createdAt"],"additionalProperties":false};
 
 function validate76(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -14094,7 +14094,7 @@ validate76.errors = vErrors;
 return errors === 0;
 }
 
-export const PrivateMediaFileInfo = validate77;
+exports.PrivateMediaFileInfo = validate77;
 const schema83 = {"type":"object","properties":{"id":{"type":"string"},"hash":{"type":"string"},"path":{"type":"string"},"mimeType":{"type":"string"},"width":{"type":"integer","default":0},"height":{"type":"integer","default":0},"orientation":{"type":"integer","default":1},"size":{"type":"integer"},"postingId":{"type":"string","nullable":true},"previews":{"type":"array","items":{"$ref":"node#/definitions/MediaFilePreviewInfo"},"nullable":true},"operations":{"anyOf":[{"$ref":"node#/definitions/PrivateMediaFileOperations","type":"object","nullable":true},{"type":"null"}]}},"required":["id","hash","path","mimeType","width","height","orientation","size"],"additionalProperties":false};
 
 function validate77(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -14865,7 +14865,7 @@ validate77.errors = vErrors;
 return errors === 0;
 }
 
-export const ProfileInfo = validate78;
+exports.ProfileInfo = validate78;
 const schema86 = {"type":"object","properties":{"fullName":{"type":"string","nullable":true},"gender":{"type":"string","nullable":true},"email":{"type":"string","nullable":true},"title":{"type":"string","nullable":true},"bioSrc":{"type":"string","nullable":true},"bioSrcFormat":{"type":"string","nullable":true},"bioHtml":{"type":"string","nullable":true},"avatar":{"anyOf":[{"$ref":"node#/definitions/AvatarInfo","type":"object","nullable":true},{"type":"null"}]},"fundraisers":{"type":"array","items":{"$ref":"node#/definitions/FundraiserInfo"},"nullable":true},"operations":{"anyOf":[{"$ref":"node#/definitions/ProfileOperations","type":"object","nullable":true},{"type":"null"}]}},"additionalProperties":false};
 
 function validate78(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -16107,7 +16107,7 @@ validate78.errors = vErrors;
 return errors === 0;
 }
 
-export const PublicMediaFileInfo = validate79;
+exports.PublicMediaFileInfo = validate79;
 const schema90 = {"type":"object","properties":{"id":{"type":"string"},"path":{"type":"string"},"width":{"type":"integer","default":0},"height":{"type":"integer","default":0},"orientation":{"type":"integer","default":1},"size":{"type":"integer"}},"required":["id","path","width","height","orientation","size"],"additionalProperties":false};
 
 function validate79(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -16358,7 +16358,7 @@ validate79.errors = vErrors;
 return errors === 0;
 }
 
-export const ReactionInfo = validate80;
+exports.ReactionInfo = validate80;
 const schema91 = {"type":"object","properties":{"ownerName":{"type":"string","nullable":true},"ownerFullName":{"type":"string","nullable":true},"ownerGender":{"type":"string","nullable":true},"ownerAvatar":{"anyOf":[{"$ref":"node#/definitions/AvatarImage","type":"object","nullable":true},{"type":"null"}]},"postingId":{"type":"string","nullable":true},"postingRevisionId":{"type":"string","nullable":true},"commentId":{"type":"string","nullable":true},"commentRevisionId":{"type":"string","nullable":true},"negative":{"type":"boolean","nullable":true},"emoji":{"type":"integer","nullable":true},"moment":{"type":"integer","nullable":true},"createdAt":{"type":"integer","nullable":true},"deadline":{"type":"integer","nullable":true},"signature":{"type":"string","nullable":true},"signatureVersion":{"type":"integer","nullable":true},"operations":{"anyOf":[{"$ref":"node#/definitions/ReactionOperations","type":"object","nullable":true},{"type":"null"}]},"ownerOperations":{"anyOf":[{"$ref":"node#/definitions/ReactionOperations","type":"object","nullable":true},{"type":"null"}]},"seniorOperations":{"anyOf":[{"$ref":"node#/definitions/ReactionOperations","type":"object","nullable":true},{"type":"null"}]},"majorOperations":{"anyOf":[{"$ref":"node#/definitions/ReactionOperations","type":"object","nullable":true},{"type":"null"}]}},"additionalProperties":false};
 
 function validate80(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -18227,7 +18227,7 @@ validate80.errors = vErrors;
 return errors === 0;
 }
 
-export const ReactionInfoArray = validate81;
+exports.ReactionInfoArray = validate81;
 const schema97 = {"type":"array","items":{"$ref":"node#/definitions/ReactionInfo"}};
 
 function validate81(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -18281,7 +18281,7 @@ validate81.errors = vErrors;
 return errors === 0;
 }
 
-export const ReactionsSliceInfo = validate83;
+exports.ReactionsSliceInfo = validate83;
 const schema98 = {"type":"object","properties":{"before":{"type":"integer"},"after":{"type":"integer"},"total":{"type":"integer"},"reactions":{"type":"array","items":{"$ref":"node#/definitions/ReactionInfo"}}},"required":["before","after","total","reactions"],"additionalProperties":false};
 
 function validate83(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -18477,7 +18477,7 @@ validate83.errors = vErrors;
 return errors === 0;
 }
 
-export const ReactionTotalInfo = validate85;
+exports.ReactionTotalInfo = validate85;
 const schema99 = {"type":"object","properties":{"emoji":{"type":"integer"},"total":{"type":"integer","nullable":true},"share":{"type":"number","nullable":true,"minimum":0,"maximum":1}},"required":["emoji"],"additionalProperties":false};
 
 function validate85(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -18639,7 +18639,7 @@ validate85.errors = vErrors;
 return errors === 0;
 }
 
-export const ReactionTotalsInfo = validate86;
+exports.ReactionTotalsInfo = validate86;
 const schema100 = {"type":"object","properties":{"entryId":{"type":"string"},"positive":{"type":"array","items":{"$ref":"node#/definitions/ReactionTotalInfo"},"default":[]},"negative":{"type":"array","items":{"$ref":"node#/definitions/ReactionTotalInfo"},"default":[]}},"required":["entryId","positive","negative"],"additionalProperties":false};
 
 function validate86(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -19113,7 +19113,7 @@ validate86.errors = vErrors;
 return errors === 0;
 }
 
-export const ReactionTotalsInfoArray = validate87;
+exports.ReactionTotalsInfoArray = validate87;
 const schema103 = {"type":"array","items":{"$ref":"node#/definitions/ReactionTotalsInfo"}};
 
 function validate87(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -19167,7 +19167,7 @@ validate87.errors = vErrors;
 return errors === 0;
 }
 
-export const RegisteredNameSecret = validate89;
+exports.RegisteredNameSecret = validate89;
 const schema104 = {"type":"object","properties":{"name":{"type":"string"},"mnemonic":{"type":"array","items":{"type":"string"},"nullable":true,"minItems":24,"maxItems":24},"secret":{"type":"string","nullable":true}},"required":["name"],"additionalProperties":false};
 
 function validate89(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -19374,7 +19374,7 @@ validate89.errors = vErrors;
 return errors === 0;
 }
 
-export const RemoteMediaInfo = validate90;
+exports.RemoteMediaInfo = validate90;
 const schema105 = {"type":"object","properties":{"id":{"type":"string"},"hash":{"type":"string","nullable":true},"digest":{"type":"string","nullable":true}},"required":["id"],"additionalProperties":false};
 
 function validate90(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -19528,7 +19528,7 @@ validate90.errors = vErrors;
 return errors === 0;
 }
 
-export const RemotePostingVerificationInfo = validate91;
+exports.RemotePostingVerificationInfo = validate91;
 const schema106 = {"type":"object","properties":{"id":{"type":"string"},"nodeName":{"type":"string"},"postingId":{"type":"string"},"revisionId":{"type":"string","nullable":true},"status":{"type":"string","nullable":true},"errorCode":{"type":"string","nullable":true},"errorMessage":{"type":"string","nullable":true}},"required":["id","nodeName","postingId"],"additionalProperties":false};
 
 function validate91(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -19844,7 +19844,7 @@ validate91.errors = vErrors;
 return errors === 0;
 }
 
-export const RemoteReactionVerificationInfo = validate92;
+exports.RemoteReactionVerificationInfo = validate92;
 const schema107 = {"type":"object","properties":{"id":{"type":"string"},"nodeName":{"type":"string"},"postingId":{"type":"string"},"reactionOwnerName":{"type":"string"},"status":{"type":"string","nullable":true},"errorCode":{"type":"string","nullable":true},"errorMessage":{"type":"string","nullable":true}},"required":["id","nodeName","postingId","reactionOwnerName"],"additionalProperties":false};
 
 function validate92(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -20157,7 +20157,7 @@ validate92.errors = vErrors;
 return errors === 0;
 }
 
-export const RepliedTo = validate93;
+exports.RepliedTo = validate93;
 const schema108 = {"type":"object","properties":{"id":{"type":"string"},"revisionId":{"type":"string","nullable":true},"name":{"type":"string"},"fullName":{"type":"string","nullable":true},"gender":{"type":"string","nullable":true},"avatar":{"anyOf":[{"$ref":"node#/definitions/AvatarImage","type":"object","nullable":true},{"type":"null"}]},"heading":{"type":"string","nullable":true},"digest":{"type":"string"}},"required":["id","name","digest"],"additionalProperties":false};
 
 function validate93(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -20844,7 +20844,7 @@ validate93.errors = vErrors;
 return errors === 0;
 }
 
-export const Result = validate94;
+exports.Result = validate94;
 const schema110 = {"type":"object","properties":{"errorCode":{"type":"string"},"message":{"type":"string","default":""}},"required":["errorCode","message"],"additionalProperties":false};
 
 function validate94(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -20951,7 +20951,7 @@ validate94.errors = vErrors;
 return errors === 0;
 }
 
-export const SheriffMark = validate95;
+exports.SheriffMark = validate95;
 const schema111 = {"type":"object","properties":{"sheriffName":{"type":"string"}},"required":["sheriffName"],"additionalProperties":false};
 
 function validate95(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -21016,7 +21016,7 @@ validate95.errors = vErrors;
 return errors === 0;
 }
 
-export const SettingInfo = validate96;
+exports.SettingInfo = validate96;
 const schema112 = {"type":"object","properties":{"name":{"type":"string"},"value":{"type":"string","nullable":true}},"required":["name"],"additionalProperties":false};
 
 function validate96(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -21128,7 +21128,7 @@ validate96.errors = vErrors;
 return errors === 0;
 }
 
-export const SettingInfoArray = validate97;
+exports.SettingInfoArray = validate97;
 const schema113 = {"type":"array","items":{"$ref":"node#/definitions/SettingInfo"}};
 
 function validate97(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -21282,7 +21282,7 @@ validate97.errors = vErrors;
 return errors === 0;
 }
 
-export const SettingTypeModifiers = validate98;
+exports.SettingTypeModifiers = validate98;
 const schema115 = {"type":"object","properties":{"format":{"type":"string","nullable":true},"min":{"type":"string","nullable":true},"max":{"type":"string","nullable":true},"multiline":{"type":"boolean","nullable":true},"never":{"type":"boolean","nullable":true},"always":{"type":"boolean","nullable":true},"principals":{"type":"array","items":{"type":"string"},"nullable":true}},"additionalProperties":false};
 
 function validate98(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -21641,7 +21641,7 @@ validate98.errors = vErrors;
 return errors === 0;
 }
 
-export const SheriffComplainGroupInfo = validate99;
+exports.SheriffComplainGroupInfo = validate99;
 const schema116 = {"type":"object","properties":{"id":{"type":"string"},"remoteNodeName":{"type":"string"},"remoteNodeFullName":{"type":"string","nullable":true},"remoteFeedName":{"type":"string"},"remotePostingId":{"type":"string","nullable":true},"remotePostingRevisionId":{"type":"string","nullable":true},"remotePostingOwnerName":{"type":"string","nullable":true},"remotePostingOwnerFullName":{"type":"string","nullable":true},"remotePostingOwnerGender":{"type":"string","nullable":true},"remotePostingHeading":{"type":"string","nullable":true},"remoteCommentId":{"type":"string","nullable":true},"remoteCommentRevisionId":{"type":"string","nullable":true},"remoteCommentOwnerName":{"type":"string","nullable":true},"remoteCommentOwnerFullName":{"type":"string","nullable":true},"remoteCommentOwnerGender":{"type":"string","nullable":true},"remoteCommentHeading":{"type":"string","nullable":true},"createdAt":{"type":"integer"},"moment":{"type":"integer"},"status":{"type":"string"},"decisionCode":{"type":"string","nullable":true},"decisionDetails":{"type":"string","nullable":true},"decidedAt":{"type":"integer","nullable":true},"anonymous":{"type":"boolean","nullable":true}},"required":["id","remoteNodeName","remoteFeedName","createdAt","moment","status"],"additionalProperties":false};
 
 function validate99(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -22614,7 +22614,7 @@ validate99.errors = vErrors;
 return errors === 0;
 }
 
-export const SheriffComplainGroupsSliceInfo = validate100;
+exports.SheriffComplainGroupsSliceInfo = validate100;
 const schema117 = {"type":"object","properties":{"before":{"type":"integer"},"after":{"type":"integer"},"groups":{"type":"array","items":{"$ref":"node#/definitions/SheriffComplainGroupInfo"}},"total":{"type":"integer"},"totalInPast":{"type":"integer"},"totalInFuture":{"type":"integer"}},"required":["before","after","groups","total","totalInPast","totalInFuture"],"additionalProperties":false};
 
 function validate100(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -23845,7 +23845,7 @@ validate100.errors = vErrors;
 return errors === 0;
 }
 
-export const SheriffComplainInfo = validate101;
+exports.SheriffComplainInfo = validate101;
 const schema119 = {"type":"object","properties":{"id":{"type":"string"},"ownerName":{"type":"string"},"ownerFullName":{"type":"string","nullable":true},"ownerGender":{"type":"string","nullable":true},"group":{"anyOf":[{"$ref":"node#/definitions/SheriffComplainGroupInfo","type":"object","nullable":true},{"type":"null"}]},"reasonCode":{"type":"string"},"reasonDetails":{"type":"string","nullable":true},"anonymousRequested":{"type":"boolean","nullable":true},"createdAt":{"type":"integer"}},"required":["id","ownerName","reasonCode","createdAt"],"additionalProperties":false};
 
 function validate101(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -25419,7 +25419,7 @@ validate101.errors = vErrors;
 return errors === 0;
 }
 
-export const SheriffComplainInfoArray = validate102;
+exports.SheriffComplainInfoArray = validate102;
 const schema121 = {"type":"array","items":{"$ref":"node#/definitions/SheriffComplainInfo"}};
 
 function validate102(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -25473,7 +25473,7 @@ validate102.errors = vErrors;
 return errors === 0;
 }
 
-export const SheriffOrderInfo = validate104;
+exports.SheriffOrderInfo = validate104;
 const schema122 = {"type":"object","properties":{"id":{"type":"string"},"delete":{"type":"boolean","nullable":true},"sheriffName":{"type":"string"},"nodeName":{"type":"string"},"nodeFullName":{"type":"string","nullable":true},"feedName":{"type":"string"},"postingId":{"type":"string","nullable":true},"postingRevisionId":{"type":"string","nullable":true},"postingOwnerName":{"type":"string","nullable":true},"postingOwnerFullName":{"type":"string","nullable":true},"postingOwnerGender":{"type":"string","nullable":true},"postingHeading":{"type":"string","nullable":true},"commentId":{"type":"string","nullable":true},"commentRevisionId":{"type":"string","nullable":true},"commentOwnerName":{"type":"string","nullable":true},"commentOwnerFullName":{"type":"string","nullable":true},"commentOwnerGender":{"type":"string","nullable":true},"commentHeading":{"type":"string","nullable":true},"category":{"type":"string"},"reasonCode":{"type":"string","nullable":true},"reasonDetails":{"type":"string","nullable":true},"createdAt":{"type":"integer"},"signature":{"type":"string"},"signatureVersion":{"type":"integer"},"complainGroupId":{"type":"string","nullable":true}},"required":["id","sheriffName","nodeName","feedName","category","createdAt","signature","signatureVersion"],"additionalProperties":false};
 
 function validate104(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -26526,7 +26526,7 @@ validate104.errors = vErrors;
 return errors === 0;
 }
 
-export const StorySummaryBlocked = validate105;
+exports.StorySummaryBlocked = validate105;
 const schema123 = {"type":"object","properties":{"operations":{"type":"array","items":{"type":"string"}},"period":{"type":"integer","nullable":true}},"required":["operations"],"additionalProperties":false};
 
 function validate105(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -26677,7 +26677,7 @@ validate105.errors = vErrors;
 return errors === 0;
 }
 
-export const StorySummaryFriendGroup = validate106;
+exports.StorySummaryFriendGroup = validate106;
 const schema124 = {"type":"object","properties":{"id":{"type":"string","nullable":true},"title":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate106(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -26785,7 +26785,7 @@ validate106.errors = vErrors;
 return errors === 0;
 }
 
-export const StorySummaryEntry = validate107;
+exports.StorySummaryEntry = validate107;
 const schema125 = {"type":"object","properties":{"ownerName":{"type":"string","nullable":true},"ownerFullName":{"type":"string","nullable":true},"ownerGender":{"type":"string","nullable":true},"heading":{"type":"string","nullable":true},"sheriffs":{"type":"array","items":{"type":"string"},"nullable":true},"sheriffMarks":{"type":"array","items":{"$ref":"node#/definitions/SheriffMark"},"nullable":true}},"additionalProperties":false};
 
 function validate107(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -27170,7 +27170,7 @@ validate107.errors = vErrors;
 return errors === 0;
 }
 
-export const StorySummaryNode = validate108;
+exports.StorySummaryNode = validate108;
 const schema127 = {"type":"object","properties":{"ownerName":{"type":"string","nullable":true},"ownerFullName":{"type":"string","nullable":true},"ownerGender":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate108(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -27320,7 +27320,7 @@ validate108.errors = vErrors;
 return errors === 0;
 }
 
-export const StorySummaryReaction = validate109;
+exports.StorySummaryReaction = validate109;
 const schema128 = {"type":"object","properties":{"ownerName":{"type":"string","nullable":true},"ownerFullName":{"type":"string","nullable":true},"ownerGender":{"type":"string","nullable":true},"emoji":{"type":"integer","nullable":true}},"additionalProperties":false};
 
 function validate109(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -27510,7 +27510,7 @@ validate109.errors = vErrors;
 return errors === 0;
 }
 
-export const StorySummarySheriff = validate110;
+exports.StorySummarySheriff = validate110;
 const schema129 = {"type":"object","properties":{"sheriffName":{"type":"string"},"orderId":{"type":"string","nullable":true},"complainId":{"type":"string","nullable":true}},"required":["sheriffName"],"additionalProperties":false};
 
 function validate110(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -27664,7 +27664,7 @@ validate110.errors = vErrors;
 return errors === 0;
 }
 
-export const SubscriberInfo = validate111;
+exports.SubscriberInfo = validate111;
 const schema130 = {"type":"object","properties":{"id":{"type":"string"},"type":{"type":"string"},"feedName":{"type":"string","nullable":true},"postingId":{"type":"string","nullable":true},"nodeName":{"type":"string"},"contact":{"anyOf":[{"$ref":"node#/definitions/ContactInfo","type":"object","nullable":true},{"type":"null"}]},"createdAt":{"type":"integer"},"operations":{"anyOf":[{"$ref":"node#/definitions/SubscriberOperations","type":"object","nullable":true},{"type":"null"}]},"ownerOperations":{"anyOf":[{"$ref":"node#/definitions/SubscriberOperations","type":"object","nullable":true},{"type":"null"}]},"adminOperations":{"anyOf":[{"$ref":"node#/definitions/SubscriberOperations","type":"object","nullable":true},{"type":"null"}]}},"required":["id","type","nodeName","createdAt"],"additionalProperties":false};
 
 function validate111(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -28716,7 +28716,7 @@ validate111.errors = vErrors;
 return errors === 0;
 }
 
-export const SubscriberInfoArray = validate113;
+exports.SubscriberInfoArray = validate113;
 const schema134 = {"type":"array","items":{"$ref":"node#/definitions/SubscriberInfo"}};
 
 function validate113(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -28770,7 +28770,7 @@ validate113.errors = vErrors;
 return errors === 0;
 }
 
-export const SubscriptionInfo = validate115;
+exports.SubscriptionInfo = validate115;
 const schema135 = {"type":"object","properties":{"id":{"type":"string"},"type":{"type":"string"},"feedName":{"type":"string","nullable":true},"remoteNodeName":{"type":"string"},"contact":{"anyOf":[{"$ref":"node#/definitions/ContactInfo","type":"object","nullable":true},{"type":"null"}]},"remoteFeedName":{"type":"string","nullable":true},"remotePostingId":{"type":"string","nullable":true},"createdAt":{"type":"integer"},"reason":{"type":"string"},"operations":{"anyOf":[{"$ref":"node#/definitions/SubscriptionOperations","type":"object","nullable":true},{"type":"null"}]}},"required":["id","type","remoteNodeName","createdAt","reason"],"additionalProperties":false};
 
 function validate115(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -29455,7 +29455,7 @@ validate115.errors = vErrors;
 return errors === 0;
 }
 
-export const SubscriptionInfoArray = validate117;
+exports.SubscriptionInfoArray = validate117;
 const schema137 = {"type":"array","items":{"$ref":"node#/definitions/SubscriptionInfo"}};
 
 function validate117(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -29509,7 +29509,7 @@ validate117.errors = vErrors;
 return errors === 0;
 }
 
-export const TokenInfo = validate119;
+exports.TokenInfo = validate119;
 const schema138 = {"type":"object","properties":{"id":{"type":"string"},"token":{"type":"string"},"name":{"type":"string","nullable":true},"permissions":{"type":"array","items":{"type":"string"},"default":[]},"pluginName":{"type":"string","nullable":true},"createdAt":{"type":"integer"},"deadline":{"type":"integer","nullable":true},"lastUsedAt":{"type":"integer","nullable":true},"lastUsedBrowser":{"type":"string","nullable":true},"lastUsedIp":{"type":"string","nullable":true}},"required":["id","token","permissions","createdAt"],"additionalProperties":false};
 
 function validate119(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -29981,7 +29981,7 @@ validate119.errors = vErrors;
 return errors === 0;
 }
 
-export const TokenInfoArray = validate120;
+exports.TokenInfoArray = validate120;
 const schema139 = {"type":"array","items":{"$ref":"node#/definitions/TokenInfo"}};
 
 function validate120(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -30495,7 +30495,7 @@ validate120.errors = vErrors;
 return errors === 0;
 }
 
-export const UpdateInfo = validate121;
+exports.UpdateInfo = validate121;
 const schema141 = {"type":"object","properties":{"important":{"type":"boolean","nullable":true},"description":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate121(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -30603,7 +30603,7 @@ validate121.errors = vErrors;
 return errors === 0;
 }
 
-export const UserListInfo = validate122;
+exports.UserListInfo = validate122;
 const schema142 = {"type":"object","properties":{"name":{"type":"string"},"total":{"type":"integer"}},"required":["name","total"],"additionalProperties":false};
 
 function validate122(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -30710,7 +30710,7 @@ validate122.errors = vErrors;
 return errors === 0;
 }
 
-export const UserListItemInfo = validate123;
+exports.UserListItemInfo = validate123;
 const schema143 = {"type":"object","properties":{"nodeName":{"type":"string"},"createdAt":{"type":"integer"},"moment":{"type":"integer"}},"required":["nodeName","createdAt","moment"],"additionalProperties":false};
 
 function validate123(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -30854,7 +30854,7 @@ validate123.errors = vErrors;
 return errors === 0;
 }
 
-export const UserListSliceInfo = validate124;
+exports.UserListSliceInfo = validate124;
 const schema144 = {"type":"object","properties":{"listName":{"type":"string"},"before":{"type":"integer"},"after":{"type":"integer"},"items":{"type":"array","items":{"$ref":"node#/definitions/UserListItemInfo"}},"total":{"type":"integer"},"totalInPast":{"type":"integer"},"totalInFuture":{"type":"integer"}},"required":["listName","before","after","items","total","totalInPast","totalInFuture"],"additionalProperties":false};
 
 function validate124(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -31295,7 +31295,7 @@ validate124.errors = vErrors;
 return errors === 0;
 }
 
-export const WhoAmI = validate125;
+exports.WhoAmI = validate125;
 const schema146 = {"type":"object","properties":{"nodeName":{"type":"string","nullable":true},"nodeNameChanging":{"type":"boolean","nullable":true},"fullName":{"type":"string","nullable":true},"gender":{"type":"string","nullable":true},"title":{"type":"string","nullable":true},"avatar":{"anyOf":[{"$ref":"node#/definitions/AvatarImage","type":"object","nullable":true},{"type":"null"}]}},"additionalProperties":false};
 
 function validate125(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -31900,7 +31900,7 @@ validate125.errors = vErrors;
 return errors === 0;
 }
 
-export const ActivityReactionInfo = validate126;
+exports.ActivityReactionInfo = validate126;
 const schema148 = {"type":"object","properties":{"remoteNodeName":{"type":"string"},"remoteFullName":{"type":"string","nullable":true},"remoteAvatar":{"anyOf":[{"$ref":"node#/definitions/AvatarImage","type":"object","nullable":true},{"type":"null"}]},"remotePostingId":{"type":"string"},"negative":{"type":"boolean"},"emoji":{"type":"integer"},"createdAt":{"type":"integer"}},"required":["remoteNodeName","remotePostingId","negative","emoji","createdAt"],"additionalProperties":false};
 
 function validate126(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -32535,7 +32535,7 @@ validate126.errors = vErrors;
 return errors === 0;
 }
 
-export const ActivityReactionInfoArray = validate127;
+exports.ActivityReactionInfoArray = validate127;
 const schema150 = {"type":"array","items":{"$ref":"node#/definitions/ActivityReactionInfo"}};
 
 function validate127(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -32589,7 +32589,7 @@ validate127.errors = vErrors;
 return errors === 0;
 }
 
-export const BlockedByUserInfo = validate129;
+exports.BlockedByUserInfo = validate129;
 const schema151 = {"type":"object","properties":{"id":{"type":"string"},"blockedOperation":{"type":"string"},"contact":{"anyOf":[{"$ref":"node#/definitions/ContactInfo","type":"object","nullable":true},{"type":"null"}]},"nodeName":{"type":"string"},"postingId":{"type":"string","nullable":true},"createdAt":{"type":"integer"},"deadline":{"type":"integer","nullable":true},"reason":{"type":"string","nullable":true}},"required":["id","blockedOperation","nodeName","createdAt"],"additionalProperties":false};
 
 function validate129(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -33009,7 +33009,7 @@ validate129.errors = vErrors;
 return errors === 0;
 }
 
-export const BlockedByUserInfoArray = validate131;
+exports.BlockedByUserInfoArray = validate131;
 const schema152 = {"type":"array","items":{"$ref":"node#/definitions/BlockedByUserInfo"}};
 
 function validate131(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -33063,7 +33063,7 @@ validate131.errors = vErrors;
 return errors === 0;
 }
 
-export const BlockedUserInfo = validate133;
+exports.BlockedUserInfo = validate133;
 const schema153 = {"type":"object","properties":{"id":{"type":"string"},"blockedOperation":{"type":"string"},"nodeName":{"type":"string"},"contact":{"anyOf":[{"$ref":"node#/definitions/ContactInfo","type":"object","nullable":true},{"type":"null"}]},"entryId":{"type":"string","nullable":true},"entryNodeName":{"type":"string","nullable":true},"entryPostingId":{"type":"string","nullable":true},"createdAt":{"type":"integer"},"deadline":{"type":"integer","nullable":true},"reasonSrc":{"type":"string","nullable":true},"reasonSrcFormat":{"type":"string","nullable":true},"reason":{"type":"string","nullable":true}},"required":["id","blockedOperation","nodeName","createdAt"],"additionalProperties":false};
 
 function validate133(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -33651,7 +33651,7 @@ validate133.errors = vErrors;
 return errors === 0;
 }
 
-export const BlockedUserInfoArray = validate135;
+exports.BlockedUserInfoArray = validate135;
 const schema154 = {"type":"array","items":{"$ref":"node#/definitions/BlockedUserInfo"}};
 
 function validate135(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -33705,7 +33705,7 @@ validate135.errors = vErrors;
 return errors === 0;
 }
 
-export const Body = validate137;
+exports.Body = validate137;
 const schema155 = {"type":"object","properties":{"subject":{"type":"string","nullable":true},"text":{"type":"string","nullable":true},"linkPreviews":{"type":"array","items":{"$ref":"node#/definitions/LinkPreview"},"nullable":true}},"additionalProperties":false};
 
 function validate137(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -34092,7 +34092,7 @@ validate137.errors = vErrors;
 return errors === 0;
 }
 
-export const CommentRevisionInfo = validate138;
+exports.CommentRevisionInfo = validate138;
 const schema157 = {"type":"object","properties":{"id":{"type":"string"},"postingRevisionId":{"type":"string"},"bodyPreview":{"type":"string","nullable":true},"bodySrcHash":{"type":"string"},"bodySrcFormat":{"type":"string","nullable":true},"body":{"type":"string"},"bodyFormat":{"type":"string","nullable":true},"heading":{"type":"string"},"createdAt":{"type":"integer"},"deletedAt":{"type":"integer","nullable":true},"deadline":{"type":"integer","nullable":true},"digest":{"type":"string","nullable":true},"signature":{"type":"string","nullable":true},"signatureVersion":{"type":"integer","nullable":true},"clientReaction":{"anyOf":[{"$ref":"node#/definitions/ClientReactionInfo","type":"object","nullable":true},{"type":"null"}]},"reactions":{"anyOf":[{"$ref":"node#/definitions/ReactionTotalsInfo","type":"object","nullable":true},{"type":"null"}]}},"required":["id","postingRevisionId","bodySrcHash","body","heading","createdAt"],"additionalProperties":false};
 
 function validate138(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -35114,7 +35114,7 @@ validate138.errors = vErrors;
 return errors === 0;
 }
 
-export const CommentRevisionInfoArray = validate140;
+exports.CommentRevisionInfoArray = validate140;
 const schema159 = {"type":"array","items":{"$ref":"node#/definitions/CommentRevisionInfo"}};
 
 function validate140(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -35168,7 +35168,7 @@ validate140.errors = vErrors;
 return errors === 0;
 }
 
-export const Features = validate142;
+exports.Features = validate142;
 const schema160 = {"type":"object","properties":{"posting":{"$ref":"node#/definitions/PostingFeatures"},"plugins":{"type":"array","items":{"type":"string"},"nullable":true},"feedWidth":{"type":"integer"},"friendGroups":{"anyOf":[{"$ref":"node#/definitions/FriendGroupsFeatures","type":"object","nullable":true},{"type":"null"}]},"ask":{"type":"array","items":{"type":"string"},"nullable":true},"subscribed":{"type":"boolean","nullable":true}},"required":["posting","feedWidth"],"additionalProperties":false};
 
 function validate142(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -35939,7 +35939,7 @@ validate142.errors = vErrors;
 return errors === 0;
 }
 
-export const FeedInfo = validate144;
+exports.FeedInfo = validate144;
 const schema162 = {"type":"object","properties":{"feedName":{"type":"string"},"title":{"type":"string","nullable":true},"total":{"type":"integer"},"firstCreatedAt":{"type":"integer","nullable":true},"lastCreatedAt":{"type":"integer","nullable":true},"operations":{"anyOf":[{"$ref":"node#/definitions/FeedOperations","type":"object","nullable":true},{"type":"null"}]},"sheriffs":{"type":"array","items":{"type":"string"},"nullable":true},"sheriffMarks":{"type":"array","items":{"$ref":"node#/definitions/SheriffMark"},"nullable":true}},"required":["feedName","total"],"additionalProperties":false};
 
 function validate144(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -36532,7 +36532,7 @@ validate144.errors = vErrors;
 return errors === 0;
 }
 
-export const FeedInfoArray = validate145;
+exports.FeedInfoArray = validate145;
 const schema165 = {"type":"array","items":{"$ref":"node#/definitions/FeedInfo"}};
 
 function validate145(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -36586,7 +36586,7 @@ validate145.errors = vErrors;
 return errors === 0;
 }
 
-export const MediaAttachment = validate147;
+exports.MediaAttachment = validate147;
 const schema166 = {"type":"object","properties":{"media":{"anyOf":[{"$ref":"node#/definitions/PrivateMediaFileInfo","type":"object","nullable":true},{"type":"null"}]},"remoteMedia":{"anyOf":[{"$ref":"node#/definitions/RemoteMediaInfo","type":"object","nullable":true},{"type":"null"}]},"embedded":{"type":"boolean"}},"required":["embedded"],"additionalProperties":false};
 
 function validate147(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -37049,7 +37049,7 @@ validate147.errors = vErrors;
 return errors === 0;
 }
 
-export const PostingInfo = validate149;
+exports.PostingInfo = validate149;
 const schema168 = {"type":"object","properties":{"id":{"type":"string"},"revisionId":{"type":"string"},"receiverRevisionId":{"type":"string","nullable":true},"totalRevisions":{"type":"integer"},"receiverName":{"type":"string","nullable":true},"receiverFullName":{"type":"string","nullable":true},"receiverGender":{"type":"string","nullable":true},"receiverAvatar":{"anyOf":[{"$ref":"node#/definitions/AvatarImage","type":"object","nullable":true},{"type":"null"}]},"receiverPostingId":{"type":"string","nullable":true},"parentMediaId":{"type":"string","nullable":true},"ownerName":{"type":"string"},"ownerFullName":{"type":"string","nullable":true},"ownerGender":{"type":"string","nullable":true},"ownerAvatar":{"anyOf":[{"$ref":"node#/definitions/AvatarImage","type":"object","nullable":true},{"type":"null"}]},"bodyPreview":{"type":"string","nullable":true},"bodySrc":{"type":"string","nullable":true},"bodySrcHash":{"type":"string"},"bodySrcFormat":{"type":"string","nullable":true},"body":{"type":"string"},"bodyFormat":{"type":"string","nullable":true},"media":{"type":"array","items":{"$ref":"node#/definitions/MediaAttachment"},"nullable":true},"heading":{"type":"string"},"updateInfo":{"anyOf":[{"$ref":"node#/definitions/UpdateInfo","type":"object","nullable":true},{"type":"null"}]},"createdAt":{"type":"integer"},"editedAt":{"type":"integer","nullable":true},"deletedAt":{"type":"integer","nullable":true},"receiverCreatedAt":{"type":"integer","nullable":true},"receiverEditedAt":{"type":"integer","nullable":true},"receiverDeletedAt":{"type":"integer","nullable":true},"revisionCreatedAt":{"type":"integer"},"receiverRevisionCreatedAt":{"type":"integer","nullable":true},"deadline":{"type":"integer","nullable":true},"digest":{"type":"string","nullable":true},"signature":{"type":"string","nullable":true},"signatureVersion":{"type":"integer","nullable":true},"feedReferences":{"type":"array","items":{"$ref":"node#/definitions/FeedReference"},"nullable":true},"blockedInstants":{"type":"array","items":{"$ref":"node#/definitions/BlockedPostingInstantInfo"},"nullable":true},"operations":{"anyOf":[{"$ref":"node#/definitions/PostingOperations","type":"object","nullable":true},{"type":"null"}]},"receiverOperations":{"anyOf":[{"$ref":"node#/definitions/PostingOperations","type":"object","nullable":true},{"type":"null"}]},"commentOperations":{"anyOf":[{"$ref":"node#/definitions/CommentOperations","type":"object","nullable":true},{"type":"null"}]},"reactionOperations":{"anyOf":[{"$ref":"node#/definitions/ReactionOperations","type":"object","nullable":true},{"type":"null"}]},"commentReactionOperations":{"anyOf":[{"$ref":"node#/definitions/ReactionOperations","type":"object","nullable":true},{"type":"null"}]},"blockedOperations":{"type":"array","items":{"type":"string"},"nullable":true},"blockedCommentOperations":{"type":"array","items":{"type":"string"},"nullable":true},"sheriffs":{"type":"array","items":{"type":"string"},"nullable":true},"sheriffMarks":{"type":"array","items":{"$ref":"node#/definitions/SheriffMark"},"nullable":true},"acceptedReactions":{"anyOf":[{"$ref":"node#/definitions/AcceptedReactions","type":"object","nullable":true},{"type":"null"}]},"clientReaction":{"anyOf":[{"$ref":"node#/definitions/ClientReactionInfo","type":"object","nullable":true},{"type":"null"}]},"reactions":{"anyOf":[{"$ref":"node#/definitions/ReactionTotalsInfo","type":"object","nullable":true},{"type":"null"}]},"sources":{"type":"array","items":{"$ref":"node#/definitions/PostingSourceInfo"},"nullable":true},"totalComments":{"type":"integer","nullable":true}},"required":["id","revisionId","totalRevisions","ownerName","bodySrcHash","body","heading","createdAt","revisionCreatedAt"],"additionalProperties":false};
 
 function validate149(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -43661,7 +43661,7 @@ validate149.errors = vErrors;
 return errors === 0;
 }
 
-export const PostingInfoArray = validate154;
+exports.PostingInfoArray = validate154;
 const schema181 = {"type":"array","items":{"$ref":"node#/definitions/PostingInfo"}};
 
 function validate154(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -43715,7 +43715,7 @@ validate154.errors = vErrors;
 return errors === 0;
 }
 
-export const PostingRevisionInfo = validate156;
+exports.PostingRevisionInfo = validate156;
 const schema182 = {"type":"object","properties":{"id":{"type":"string"},"receiverId":{"type":"string","nullable":true},"bodyPreview":{"type":"string","nullable":true},"bodySrcHash":{"type":"string"},"bodySrcFormat":{"type":"string","nullable":true},"body":{"type":"string"},"bodyFormat":{"type":"string","nullable":true},"media":{"type":"array","items":{"$ref":"node#/definitions/MediaAttachment"},"nullable":true},"heading":{"type":"string"},"updateInfo":{"anyOf":[{"$ref":"node#/definitions/UpdateInfo","type":"object","nullable":true},{"type":"null"}]},"createdAt":{"type":"integer"},"deletedAt":{"type":"integer","nullable":true},"receiverCreatedAt":{"type":"integer","nullable":true},"receiverDeletedAt":{"type":"integer","nullable":true},"digest":{"type":"string","nullable":true},"signature":{"type":"string","nullable":true},"signatureVersion":{"type":"integer","nullable":true},"clientReaction":{"anyOf":[{"$ref":"node#/definitions/ClientReactionInfo","type":"object","nullable":true},{"type":"null"}]},"reactions":{"anyOf":[{"$ref":"node#/definitions/ReactionTotalsInfo","type":"object","nullable":true},{"type":"null"}]}},"required":["id","bodySrcHash","body","heading","createdAt"],"additionalProperties":false};
 
 function validate156(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -45061,7 +45061,7 @@ validate156.errors = vErrors;
 return errors === 0;
 }
 
-export const PostingRevisionInfoArray = validate159;
+exports.PostingRevisionInfoArray = validate159;
 const schema185 = {"type":"array","items":{"$ref":"node#/definitions/PostingRevisionInfo"}};
 
 function validate159(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -45115,7 +45115,7 @@ validate159.errors = vErrors;
 return errors === 0;
 }
 
-export const ReactionCreated = validate161;
+exports.ReactionCreated = validate161;
 const schema186 = {"type":"object","properties":{"reaction":{"anyOf":[{"$ref":"node#/definitions/ReactionInfo","type":"object","nullable":true},{"type":"null"}]},"totals":{"$ref":"node#/definitions/ReactionTotalsInfo"}},"required":["totals"],"additionalProperties":false};
 
 function validate161(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -45270,7 +45270,7 @@ validate161.errors = vErrors;
 return errors === 0;
 }
 
-export const SettingMetaInfo = validate164;
+exports.SettingMetaInfo = validate164;
 const schema187 = {"type":"object","properties":{"name":{"type":"string"},"type":{"type":"string"},"defaultValue":{"type":"string","nullable":true},"privileged":{"type":"boolean","nullable":true},"title":{"type":"string"},"modifiers":{"anyOf":[{"$ref":"node#/definitions/SettingTypeModifiers","type":"object","nullable":true},{"type":"null"}]}},"required":["name","type","title"],"additionalProperties":false};
 
 function validate164(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -46013,7 +46013,7 @@ validate164.errors = vErrors;
 return errors === 0;
 }
 
-export const SettingMetaInfoArray = validate165;
+exports.SettingMetaInfoArray = validate165;
 const schema189 = {"type":"array","items":{"$ref":"node#/definitions/SettingMetaInfo"}};
 
 function validate165(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -46067,7 +46067,7 @@ validate165.errors = vErrors;
 return errors === 0;
 }
 
-export const StorySummaryData = validate167;
+exports.StorySummaryData = validate167;
 const schema190 = {"type":"object","properties":{"node":{"anyOf":[{"$ref":"node#/definitions/StorySummaryNode","type":"object","nullable":true},{"type":"null"}]},"posting":{"anyOf":[{"$ref":"node#/definitions/StorySummaryEntry","type":"object","nullable":true},{"type":"null"}]},"comment":{"anyOf":[{"$ref":"node#/definitions/StorySummaryEntry","type":"object","nullable":true},{"type":"null"}]},"comments":{"type":"array","items":{"$ref":"node#/definitions/StorySummaryEntry"},"nullable":true},"totalComments":{"type":"integer","nullable":true},"repliedTo":{"anyOf":[{"$ref":"node#/definitions/StorySummaryEntry","type":"object","nullable":true},{"type":"null"}]},"parentPosting":{"anyOf":[{"$ref":"node#/definitions/StorySummaryEntry","type":"object","nullable":true},{"type":"null"}]},"reaction":{"anyOf":[{"$ref":"node#/definitions/StorySummaryReaction","type":"object","nullable":true},{"type":"null"}]},"reactions":{"type":"array","items":{"$ref":"node#/definitions/StorySummaryReaction"},"nullable":true},"totalReactions":{"type":"integer","nullable":true},"feedName":{"type":"string","nullable":true},"subscriptionReason":{"type":"string","nullable":true},"friendGroup":{"anyOf":[{"$ref":"node#/definitions/StorySummaryFriendGroup","type":"object","nullable":true},{"type":"null"}]},"blocked":{"anyOf":[{"$ref":"node#/definitions/StorySummaryBlocked","type":"object","nullable":true},{"type":"null"}]},"sheriff":{"anyOf":[{"$ref":"node#/definitions/StorySummarySheriff","type":"object","nullable":true},{"type":"null"}]},"description":{"type":"string","nullable":true}},"additionalProperties":false};
 
 function validate167(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -48408,7 +48408,7 @@ validate167.errors = vErrors;
 return errors === 0;
 }
 
-export const CommentInfo = validate173;
+exports.CommentInfo = validate173;
 const schema197 = {"type":"object","properties":{"id":{"type":"string"},"ownerName":{"type":"string"},"ownerFullName":{"type":"string","nullable":true},"ownerGender":{"type":"string","nullable":true},"ownerAvatar":{"anyOf":[{"$ref":"node#/definitions/AvatarImage","type":"object","nullable":true},{"type":"null"}]},"postingId":{"type":"string"},"postingRevisionId":{"type":"string"},"revisionId":{"type":"string"},"totalRevisions":{"type":"integer"},"bodyPreview":{"type":"string","nullable":true},"bodySrc":{"type":"string","nullable":true},"bodySrcHash":{"type":"string"},"bodySrcFormat":{"type":"string","nullable":true},"body":{"type":"string"},"bodyFormat":{"type":"string","nullable":true},"media":{"type":"array","items":{"$ref":"node#/definitions/MediaAttachment"},"nullable":true},"heading":{"type":"string"},"repliedTo":{"anyOf":[{"$ref":"node#/definitions/RepliedTo","type":"object","nullable":true},{"type":"null"}]},"moment":{"type":"integer"},"createdAt":{"type":"integer"},"editedAt":{"type":"integer","nullable":true},"deletedAt":{"type":"integer","nullable":true},"revisionCreatedAt":{"type":"integer"},"deadline":{"type":"integer","nullable":true},"digest":{"type":"string","nullable":true},"signature":{"type":"string","nullable":true},"signatureVersion":{"type":"integer","nullable":true},"operations":{"anyOf":[{"$ref":"node#/definitions/CommentOperations","type":"object","nullable":true},{"type":"null"}]},"reactionOperations":{"anyOf":[{"$ref":"node#/definitions/ReactionOperations","type":"object","nullable":true},{"type":"null"}]},"ownerOperations":{"anyOf":[{"$ref":"node#/definitions/CommentOperations","type":"object","nullable":true},{"type":"null"}]},"seniorOperations":{"anyOf":[{"$ref":"node#/definitions/CommentOperations","type":"object","nullable":true},{"type":"null"}]},"blockedOperations":{"type":"array","items":{"type":"string"},"nullable":true},"sheriffMarks":{"type":"array","items":{"$ref":"node#/definitions/SheriffMark"},"nullable":true},"acceptedReactions":{"anyOf":[{"$ref":"node#/definitions/AcceptedReactions","type":"object","nullable":true},{"type":"null"}]},"clientReaction":{"anyOf":[{"$ref":"node#/definitions/ClientReactionInfo","type":"object","nullable":true},{"type":"null"}]},"seniorReaction":{"anyOf":[{"$ref":"node#/definitions/ClientReactionInfo","type":"object","nullable":true},{"type":"null"}]},"reactions":{"anyOf":[{"$ref":"node#/definitions/ReactionTotalsInfo","type":"object","nullable":true},{"type":"null"}]}},"required":["id","ownerName","postingId","postingRevisionId","revisionId","totalRevisions","bodySrcHash","body","heading","moment","createdAt","revisionCreatedAt"],"additionalProperties":false};
 
 function validate173(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -53297,7 +53297,7 @@ validate173.errors = vErrors;
 return errors === 0;
 }
 
-export const CommentsSliceInfo = validate177;
+exports.CommentsSliceInfo = validate177;
 const schema207 = {"type":"object","properties":{"before":{"type":"integer"},"after":{"type":"integer"},"comments":{"type":"array","items":{"$ref":"node#/definitions/CommentInfo"}},"total":{"type":"integer"},"totalInPast":{"type":"integer"},"totalInFuture":{"type":"integer"}},"required":["before","after","comments","total","totalInPast","totalInFuture"],"additionalProperties":false};
 
 function validate177(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -53567,7 +53567,7 @@ validate177.errors = vErrors;
 return errors === 0;
 }
 
-export const DraftInfo = validate179;
+exports.DraftInfo = validate179;
 const schema208 = {"type":"object","properties":{"id":{"type":"string"},"draftType":{"type":"string"},"receiverName":{"type":"string"},"receiverPostingId":{"type":"string","nullable":true},"receiverCommentId":{"type":"string","nullable":true},"repliedToId":{"type":"string","nullable":true},"createdAt":{"type":"integer"},"editedAt":{"type":"integer","nullable":true},"deadline":{"type":"integer","nullable":true},"ownerFullName":{"type":"string","nullable":true},"ownerAvatar":{"anyOf":[{"$ref":"node#/definitions/AvatarImage","type":"object","nullable":true},{"type":"null"}]},"acceptedReactions":{"anyOf":[{"$ref":"node#/definitions/AcceptedReactions","type":"object","nullable":true},{"type":"null"}]},"bodySrc":{"type":"string","nullable":true},"bodySrcFormat":{"type":"string","nullable":true},"body":{"type":"string"},"bodyFormat":{"type":"string","nullable":true},"media":{"type":"array","items":{"$ref":"node#/definitions/MediaAttachment"},"nullable":true},"heading":{"type":"string"},"publishAt":{"type":"integer","nullable":true},"updateInfo":{"anyOf":[{"$ref":"node#/definitions/UpdateInfo","type":"object","nullable":true},{"type":"null"}]},"operations":{"anyOf":[{"$ref":"node#/definitions/PostingOperations","type":"object","nullable":true},{"type":"null"}]},"commentOperations":{"anyOf":[{"$ref":"node#/definitions/CommentOperations","type":"object","nullable":true},{"type":"null"}]}},"required":["id","draftType","receiverName","createdAt","body","heading"],"additionalProperties":false};
 
 function validate179(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -56679,7 +56679,7 @@ validate179.errors = vErrors;
 return errors === 0;
 }
 
-export const DraftInfoArray = validate181;
+exports.DraftInfoArray = validate181;
 const schema214 = {"type":"array","items":{"$ref":"node#/definitions/DraftInfo"}};
 
 function validate181(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -56733,7 +56733,7 @@ validate181.errors = vErrors;
 return errors === 0;
 }
 
-export const EntryInfo = validate183;
+exports.EntryInfo = validate183;
 const schema215 = {"type":"object","properties":{"posting":{"anyOf":[{"$ref":"node#/definitions/PostingInfo","type":"object","nullable":true},{"type":"null"}]},"comment":{"anyOf":[{"$ref":"node#/definitions/CommentInfo","type":"object","nullable":true},{"type":"null"}]}},"additionalProperties":false};
 
 function validate183(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -56979,7 +56979,7 @@ validate183.errors = vErrors;
 return errors === 0;
 }
 
-export const EntryInfoArray = validate186;
+exports.EntryInfoArray = validate186;
 const schema216 = {"type":"array","items":{"$ref":"node#/definitions/EntryInfo"}};
 
 function validate186(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -57033,7 +57033,7 @@ validate186.errors = vErrors;
 return errors === 0;
 }
 
-export const PluginInfo = validate188;
+exports.PluginInfo = validate188;
 const schema217 = {"type":"object","properties":{"nodeId":{"type":"string"},"local":{"type":"boolean"},"name":{"type":"string"},"title":{"type":"string","nullable":true},"description":{"type":"string","nullable":true},"location":{"type":"string","nullable":true},"acceptedEvents":{"type":"array","items":{"type":"string"},"nullable":true},"settings":{"type":"array","items":{"$ref":"node#/definitions/SettingMetaInfo"},"nullable":true},"tokenId":{"type":"string","nullable":true}},"required":["nodeId","local","name"],"additionalProperties":false};
 
 function validate188(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -57489,7 +57489,7 @@ validate188.errors = vErrors;
 return errors === 0;
 }
 
-export const PluginInfoArray = validate190;
+exports.PluginInfoArray = validate190;
 const schema218 = {"type":"array","items":{"$ref":"node#/definitions/PluginInfo"}};
 
 function validate190(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -57543,7 +57543,7 @@ validate190.errors = vErrors;
 return errors === 0;
 }
 
-export const StoryInfo = validate192;
+exports.StoryInfo = validate192;
 const schema219 = {"type":"object","properties":{"id":{"type":"string"},"feedName":{"type":"string"},"storyType":{"type":"string"},"createdAt":{"type":"integer"},"publishedAt":{"type":"integer"},"pinned":{"type":"boolean","nullable":true},"moment":{"type":"integer"},"viewed":{"type":"boolean","nullable":true},"read":{"type":"boolean","nullable":true},"satisfied":{"type":"boolean","nullable":true},"summaryNodeName":{"type":"string","nullable":true},"summaryFullName":{"type":"string","nullable":true},"summaryAvatar":{"anyOf":[{"$ref":"node#/definitions/AvatarImage","type":"object","nullable":true},{"type":"null"}]},"summary":{"type":"string","nullable":true},"summaryData":{"anyOf":[{"$ref":"node#/definitions/StorySummaryData","type":"object","nullable":true},{"type":"null"}]},"posting":{"anyOf":[{"$ref":"node#/definitions/PostingInfo","type":"object","nullable":true},{"type":"null"}]},"postingId":{"type":"string","nullable":true},"comment":{"anyOf":[{"$ref":"node#/definitions/CommentInfo","type":"object","nullable":true},{"type":"null"}]},"commentId":{"type":"string","nullable":true},"remoteNodeName":{"type":"string","nullable":true},"remoteFullName":{"type":"string","nullable":true},"remotePostingId":{"type":"string","nullable":true},"remoteCommentId":{"type":"string","nullable":true},"remoteMediaId":{"type":"string","nullable":true},"operations":{"anyOf":[{"$ref":"node#/definitions/StoryOperations","type":"object","nullable":true},{"type":"null"}]}},"required":["id","feedName","storyType","createdAt","publishedAt","moment"],"additionalProperties":false};
 
 function validate192(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -59318,7 +59318,7 @@ validate192.errors = vErrors;
 return errors === 0;
 }
 
-export const CommentCreated = validate196;
+exports.CommentCreated = validate196;
 const schema222 = {"type":"object","properties":{"comment":{"$ref":"node#/definitions/CommentInfo"},"total":{"type":"integer"}},"required":["comment","total"],"additionalProperties":false};
 
 function validate196(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -59399,7 +59399,7 @@ validate196.errors = vErrors;
 return errors === 0;
 }
 
-export const FeedSliceInfo = validate198;
+exports.FeedSliceInfo = validate198;
 const schema223 = {"type":"object","properties":{"before":{"type":"integer"},"after":{"type":"integer"},"stories":{"type":"array","items":{"$ref":"node#/definitions/StoryInfo"}},"totalInPast":{"type":"integer"},"totalInFuture":{"type":"integer"}},"required":["before","after","stories","totalInPast","totalInFuture"],"additionalProperties":false};
 
 function validate198(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -59632,7 +59632,7 @@ validate198.errors = vErrors;
 return errors === 0;
 }
 
-export const PushContent = validate200;
+exports.PushContent = validate200;
 const schema224 = {"type":"object","properties":{"type":{"type":"string"},"id":{"type":"string","nullable":true},"story":{"anyOf":[{"$ref":"node#/definitions/StoryInfo","type":"object","nullable":true},{"type":"null"}]},"feedStatus":{"anyOf":[{"$ref":"node#/definitions/FeedWithStatus","type":"object","nullable":true},{"type":"null"}]}},"required":["type"],"additionalProperties":false};
 
 function validate200(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){
@@ -60127,7 +60127,7 @@ validate200.errors = vErrors;
 return errors === 0;
 }
 
-export const PushContentArray = validate202;
+exports.PushContentArray = validate202;
 const schema226 = {"type":"array","items":{"$ref":"node#/definitions/PushContent"}};
 
 function validate202(data, {instancePath="", parentData, parentDataProperty, rootData=data}={}){

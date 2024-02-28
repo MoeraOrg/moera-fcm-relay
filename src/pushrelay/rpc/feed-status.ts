@@ -4,6 +4,7 @@ import { ServiceError, ServiceException } from "pushrelay/rpc/errors";
 import { Client } from "pushrelay/data/models/Client";
 import { getLogger } from "pushrelay/rpc";
 import { sendMessage } from "pushrelay/fcm";
+import { resolve } from "pushrelay/api";
 
 interface Params {
     feedName?: string | null;
@@ -21,6 +22,9 @@ export default async function feedStatus({feedName, notViewed, nodeName, signatu
     }
     if (!nodeName) {
         throw new ServiceException(ServiceError.NODE_NAME_EMPTY);
+    }
+    if (await resolve(nodeName) == null) {
+        throw new ServiceException(ServiceError.NODE_NAME_UNKNOWN);
     }
 
     // TODO check signature

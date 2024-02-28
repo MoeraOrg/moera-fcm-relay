@@ -3,8 +3,9 @@ export class ServiceError {
     static CLIENT_ID_EMPTY = new ServiceError(1, "client-id.empty", "client ID is empty");
     static CLIENT_ID_TOO_LONG = new ServiceError(2, "client-id.too-long", "client ID is too long");
     static NODE_NAME_EMPTY = new ServiceError(3, "node-name.empty", "node name is empty");
-    static LANG_TOO_LONG = new ServiceError(4, "lang.too-long", "language code is too long");
-    static NO_CLIENTS = new ServiceError(5, "node.no-clients", "the node has node clients");
+    static NODE_NAME_UNKNOWN = new ServiceError(4, "node-name.unknown", "node name is unknown");
+    static LANG_TOO_LONG = new ServiceError(5, "lang.too-long", "language code is too long");
+    static NO_CLIENTS = new ServiceError(6, "node.no-clients", "the node has node clients");
 
     rpcCode: number;
     errorCode: string;

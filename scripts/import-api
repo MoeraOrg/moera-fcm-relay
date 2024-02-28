@@ -3,10 +3,10 @@
 CLIENT=../../moera-client-react
 
 cd `dirname $0`
-cp $CLIENT/src/api/node/{api-schemas.mjs,api-types.ts,api-validators.js} ../src/pushrelay/api/node
-sed -e 's|api/schema|pushrelay/api/schema|' \
-    < $CLIENT/src/api/node/api-validators.d.ts \
-    > ../src/pushrelay/api/node/api-validators.d.ts
+
+cp $CLIENT/src/api/naming/api-schemas.mjs ../src/pushrelay/api/naming
+cp $CLIENT/src/api/node/{api-types.ts,api-schemas.mjs} ../src/pushrelay/api/node
+
 cp $CLIENT/src/api/schema.ts ../src/pushrelay/api
 cp $CLIENT/src/api/node-name.ts ../src/pushrelay/api
 
