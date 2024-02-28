@@ -49,8 +49,8 @@ function compileNodeApiSchemas() {
     );
     let moduleCode = '// This file is generated\n\n';
     moduleCode += standaloneCode(ajv, idMapping);
-    moduleCode += '\nexport const NODE_API_VALIDATORS = {\n';
-    Object.keys(NODE_API_SCHEMAS.definitions).forEach(k => moduleCode += `    "${k}": ${k},\n`);
+    moduleCode += '\nexports.NODE_API_VALIDATORS = {\n';
+    Object.keys(NODE_API_SCHEMAS.definitions).forEach(k => moduleCode += `    "${k}": exports.${k},\n`);
     moduleCode += '};\n';
     writeFileSync(path.resolve(apiDir, "node/api-validators.js"), moduleCode);
 }

@@ -1,10 +1,11 @@
 import { t } from 'i18next';
 
 import { ServiceError, ServiceException } from "pushrelay/rpc/errors";
-import { Client } from "pushrelay/data/models/Client";
 import { getLogger } from "pushrelay/rpc";
 import { sendMessage } from "pushrelay/fcm";
 import { resolve } from "pushrelay/api";
+import { forAllClients } from "pushrelay/rpc/clients";
+import { universalLocation } from "pushrelay/util/url";
 
 interface Params {
     feedName?: string | null;
@@ -23,19 +24,16 @@ export default async function feedStatus({feedName, notViewed, nodeName, signatu
     if (!nodeName) {
         throw new ServiceException(ServiceError.NODE_NAME_EMPTY);
     }
-    if (await resolve(nodeName) == null) {
+    const nodeInfo = await resolve(nodeName);
+    if (nodeInfo == null) {
         throw new ServiceException(ServiceError.NODE_NAME_UNKNOWN);
     }
 
     // TODO check signature
 
-    const clients: Client[] = await Client.findAll({where: {nodeName}});
-    if (clients.length === 0) {
-        throw new ServiceException(ServiceError.NO_CLIENTS);
-    }
-
-    for (const client of clients) {
-        const body = t("new-posts-newsfeed", {count: notViewed ?? 0, lng: client.lang ?? "en"});
+    const targetUrl = universalLocation(null, nodeName, nodeInfo.nodeUri, "/news");
+    await forAllClients(nodeName, (clientId, lang) => {
+        const body = t("new-posts-newsfeed", {count: notViewed ?? 0, lng: lang});
         const message = {
             notification: {
                 body
@@ -49,11 +47,10 @@ export default async function feedStatus({feedName, notViewed, nodeName, signatu
                 }
             },
             data: {
-                url: "https://moera.page/@/~/news"
+                url: targetUrl
             },
-            token: client.clientId
+            token: clientId
         }
         sendMessage(message);
-    }
-
+    });
 }
