@@ -33,20 +33,13 @@ export default async function feedStatus({feedName, notViewed, nodeName, signatu
 
     const targetUrl = universalLocation(null, nodeName, nodeInfo.nodeUri, "/news");
     await forAllClients(nodeName, (clientId, lang) => {
-        const body = t("new-posts-newsfeed", {count: notViewed ?? 0, lng: lang});
+        const summary = t("new-posts-newsfeed", {count: notViewed ?? 0, lng: lang});
         const message = {
-            notification: {
-                body
-            },
-            android: {
-                ttl: 24 * 60 * 60 * 1000,
-                notification: {
-                    icon: "fa_newspaper",
-                    color: "#0099cc",
-                    tag: "news"
-                }
-            },
             data: {
+                summary,
+                icon: "fa_newspaper",
+                color: "#0099cc",
+                tag: "news",
                 url: targetUrl
             },
             token: clientId

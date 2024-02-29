@@ -27,7 +27,8 @@ export default async function story({story, nodeName, carte}: Params): Promise<v
     if (!nodeName) {
         throw new ServiceException(ServiceError.NODE_NAME_EMPTY);
     }
-    if (await resolve(nodeName) == null) {
+    const nodeRoot = (await resolve(nodeName))?.nodeUri;
+    if (nodeRoot == null) {
         throw new ServiceException(ServiceError.NODE_NAME_UNKNOWN);
     }
 
@@ -37,27 +38,31 @@ export default async function story({story, nodeName, carte}: Params): Promise<v
     const targetNodeName = target.nodeName === ":" ? nodeName : target.nodeName;
     const targetNodeRoot = (await resolve(targetNodeName))?.nodeUri;
     const targetUrl = universalLocation(null, targetNodeName, targetNodeRoot, target.href);
+
     const details = getInstantTypeDetails(story.storyType);
     if (details == null) {
         throw new ServiceException(ServiceError.STORY_TYPE_UNKNOWN);
     }
-    const icon = details.icon ?? (story.storyType.endsWith("-negative") ? "fa_thumbs_down" : "fa_thumbs_up");
+    const smallIcon = details.icon ?? (story.storyType.endsWith("-negative") ? "fa_thumbs_down" : "fa_thumbs_up");
+
+    let avatarUrl = "";
+    let avatarShape = "circle";
+    if (story.summaryAvatar?.path != null) {
+        avatarUrl = new URL("media/" + story.summaryAvatar.path, nodeRoot).toString();
+        avatarShape = story.summaryAvatar.shape ?? avatarShape;
+    }
+
     await forAllClients(nodeName, (clientId, lang) => {
         changeLanguage(lang);
-        const body = getInstantSummary(story, nodeName);
+        const summary = getInstantSummary(story, nodeName);
         const message = {
-            notification: {
-                body
-            },
-            android: {
-                ttl: 24 * 60 * 60 * 1000,
-                notification: {
-                    icon,
-                    color: details.color ?? "#adb5bd",
-                    tag: "story:" + story.id
-                }
-            },
             data: {
+                avatarUrl,
+                avatarShape,
+                summary,
+                smallIcon,
+                color: details.color ?? "#adb5bd",
+                tag: "story:" + story.id,
                 url: targetUrl
             },
             token: clientId
