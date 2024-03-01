@@ -15,8 +15,8 @@ interface Params {
     carte?: string | null;
 }
 
-export default async function story({story, nodeName, carte}: Params): Promise<void> {
-    getLogger().info(`Displaying a story ${story?.id} for node '${nodeName}'`);
+export default async function storyAdded({story, nodeName, carte}: Params): Promise<void> {
+    getLogger().info(`Added a story ${story?.id} for node '${nodeName}'`);
 
     if (story == null) {
         throw new ServiceException(ServiceError.STORY_EMPTY);
