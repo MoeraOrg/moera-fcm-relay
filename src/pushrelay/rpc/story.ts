@@ -63,7 +63,8 @@ export default async function story({story, nodeName, carte}: Params): Promise<v
                 smallIcon,
                 color: details.color ?? "#adb5bd",
                 tag: "story:" + story.id,
-                url: targetUrl
+                url: targetUrl,
+                markAsReadId: story.id
             },
             token: clientId
         }
