@@ -9,7 +9,13 @@ export function initApp(): void {
     const port = process.env.PORT;
 
     app.use(express.static("public"));
-    app.use(express.json());
+    app.use(express.json({
+        type: [
+            "application/json-rpc",
+            "application/json",
+            "application/jsonrequest"
+        ]
+    }));
 
     app.get(["/", "/index.html"], async (req: Request, res: Response) => {
         const view = await fs.readFile("views/index.m.html");
@@ -19,14 +25,19 @@ export function initApp(): void {
     });
 
     app.post("/moera-push-relay", (req, res) => {
-        const jsonRPCRequest = req.body;
-        rpcService.receive(jsonRPCRequest).then((jsonRPCResponse) => {
-            if (jsonRPCResponse) {
-                res.json(jsonRPCResponse);
-            } else {
-                res.sendStatus(204);
-            }
-        });
+        try {
+            const jsonRPCRequest = req.body;
+            rpcService.receive(jsonRPCRequest).then((jsonRPCResponse) => {
+                if (jsonRPCResponse) {
+                    res.json(jsonRPCResponse);
+                } else {
+                    res.sendStatus(204);
+                }
+            });
+        } catch (e) {
+            getParentLogger().error(e);
+            res.sendStatus(500);
+        }
     });
 
     app.listen(port, () => {
