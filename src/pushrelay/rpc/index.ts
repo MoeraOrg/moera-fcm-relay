@@ -1,5 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import fs from 'fs/promises';
+import * as process from 'process';
 
 import rpcService from "pushrelay/rpc/service";
 import { deriveLogger, getLogger as getParentLogger } from "pushrelay/logger";
@@ -8,6 +9,9 @@ export function initApp(): void {
     const app: Express = express();
     const port = process.env.PORT;
 
+    if (process.env.TRUST_PROXY === "true") {
+        app.set('trust proxy', true);
+    }
     app.use(express.static("public"));
     app.use(express.json({
         type: [

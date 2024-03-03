@@ -1,0 +1,9 @@
+#!/bin/bash
+
+scripts/compile || exit 1
+
+cp -r .env* moera-client-android-firebase-account.json target/
+
+echo 'Starting...'
+cd target/
+node index

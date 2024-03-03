@@ -2,10 +2,10 @@
 
 [ -d target/ ] && rm -r target/
 
-echo "Compiling TypeScript..."
+echo 'Compiling TypeScript...'
 yarn tsc || exit 1
 
-echo "Copying files..."
+echo 'Copying files...'
 find src/ -type f -not -name '*.ts' | \
     while read fname; do \
         target=`dirname $fname`
@@ -14,11 +14,7 @@ find src/ -type f -not -name '*.ts' | \
         cp $fname $target
     done
 
-cp -r migrations/ public/ views/ .env* moera-client-android-firebase-account.json target/
+cp -r migrations/ public/ views/ .env target/
 cp -r src/pushrelay/i18n/locales/ target/pushrelay/i18n/
 mkdir target/node_modules
 mv target/pushrelay target/node_modules
-
-echo "Starting..."
-cd target/
-node index

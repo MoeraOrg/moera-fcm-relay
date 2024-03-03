@@ -1,0 +1,8 @@
+VERSION=$( \
+    sed -e '/"version"/{' \
+        -e 's/^.*: *"\([^"]*\)".*$/\1/' \
+        -e 'p' \
+        -e '}' \
+        -e 'd' \
+        < package.json \
+    )

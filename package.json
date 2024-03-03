@@ -23,7 +23,8 @@
     "winston-daily-rotate-file": "^5.0.0"
   },
   "scripts": {
-    "start": "scripts/run"
+    "start": "scripts/start",
+    "build": "scripts/build"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",

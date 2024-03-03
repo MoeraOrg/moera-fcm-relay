@@ -1,0 +1,10 @@
+#!/bin/bash
+
+scripts/compile || exit 1
+
+cp -r node_modules/* target/node_modules/
+
+echo 'Creating a package...'
+. scripts/version
+cd target/
+tar jcf moera-fcm-relay-$VERSION.tar.bz2 --remove-files * .env
