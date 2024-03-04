@@ -14,7 +14,7 @@ export default async function storyDeleted({storyId, nodeName, carte}: Params): 
     getLogger().info(`Deleted a story ${storyId} for node '${nodeName}'`);
 
     if (!storyId) {
-        throw new ServiceException(ServiceError.STORY_EMPTY);
+        throw new ServiceException(ServiceError.STORY_ID_EMPTY);
     }
     if (!nodeName) {
         throw new ServiceException(ServiceError.NODE_NAME_EMPTY);

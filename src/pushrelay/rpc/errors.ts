@@ -8,8 +8,8 @@ export class ServiceError {
     static NO_CLIENTS = new ServiceError(6, "node.no-clients", "the node has node clients");
     static STORY_EMPTY = new ServiceError(7, "story.empty", "story is empty");
     static STORY_INVALID = new ServiceError(8, "story.invalid", "story has invalid format");
-    static STORY_TYPE_UNKNOWN = new ServiceError(8, "story.type-unknown", "story type is unknown");
-    static STORY_ID_EMPTY = new ServiceError(9, "storyId.empty", "story ID is empty");
+    static STORY_TYPE_UNKNOWN = new ServiceError(9, "story.type-unknown", "story type is unknown");
+    static STORY_ID_EMPTY = new ServiceError(10, "storyId.empty", "story ID is empty");
 
     rpcCode: number;
     errorCode: string;
