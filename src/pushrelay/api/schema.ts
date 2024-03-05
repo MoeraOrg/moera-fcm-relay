@@ -1,3 +1,5 @@
+// This file is imported from moera-client-react and should not be modified here
+
 import type { DataValidationCxt, ErrorObject } from 'ajv/dist/types';
 
 export interface BasicValidateFunction<T> {

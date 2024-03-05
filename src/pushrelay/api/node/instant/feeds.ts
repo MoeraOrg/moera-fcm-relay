@@ -1,3 +1,5 @@
+// This file is imported from moera-client-react and should not be modified here
+
 import { TFunction } from 'i18next';
 
 export function getFeedTitle(feedName: string | null | undefined, t?: TFunction): string {

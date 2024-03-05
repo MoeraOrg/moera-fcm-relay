@@ -1,3 +1,5 @@
+// This file is imported from moera-client-react and should not be modified here
+
 import { TFunction } from 'i18next';
 
 import { StorySummaryData, StorySummaryEntry, StorySummaryNode, StorySummaryReaction } from "pushrelay/api";

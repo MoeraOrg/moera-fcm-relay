@@ -1,3 +1,5 @@
+// This file is imported from moera-client-react and should not be modified here
+
 // This file is for schema compiler only, do not use directly
 
 export const NAMING_API_SCHEMAS = {
