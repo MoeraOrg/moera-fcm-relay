@@ -17,6 +17,9 @@ interface Params {
 
 export default async function storyAdded({story, nodeName, carte}: Params): Promise<void> {
     getLogger().info(`Added a story ${story?.id} for node '${nodeName}'`);
+    if (getLogger().isDebugEnabled() && story != null) {
+        getLogger().debug("Story data: " + JSON.stringify(story));
+    }
 
     if (story == null) {
         throw new ServiceException(ServiceError.STORY_EMPTY);
@@ -48,7 +51,7 @@ export default async function storyAdded({story, nodeName, carte}: Params): Prom
     let avatarUrl = "";
     let avatarShape = "circle";
     if (story.summaryAvatar?.path != null) {
-        avatarUrl = new URL("media/" + story.summaryAvatar.path, nodeRoot).toString();
+        avatarUrl = `${nodeRoot}/media/${story.summaryAvatar.path}`;
         avatarShape = story.summaryAvatar.shape ?? avatarShape;
     }
 

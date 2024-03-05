@@ -13,7 +13,9 @@ interface Params {
 }
 
 export default async function register({clientId, nodeName, lang, signature}: Params): Promise<void> {
-    getLogger().info(`Registering client '${(clientId ?? '').substring(0, 6)}' for node '${nodeName}'`);
+    getLogger().info(
+        `Registering client '${(clientId ?? '').substring(0, 6)}' language '${lang}' for node '${nodeName}'`
+    );
 
     if (!clientId) {
         throw new ServiceException(ServiceError.CLIENT_ID_EMPTY);

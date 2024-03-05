@@ -3,10 +3,12 @@ import { App, initializeApp } from 'firebase-admin/app';
 import { getMessaging, TokenMessage } from 'firebase-admin/messaging';
 import { addSeconds, differenceInSeconds, isPast } from 'date-fns';
 
-import { getLogger } from "pushrelay/rpc";
 import { Client } from "pushrelay/data/models/Client";
+import { deriveLogger } from "pushrelay/logger";
 
 export let index: App;
+
+export const getLogger = deriveLogger("fcm");
 
 export function initFcm(): void {
     index = initializeApp();
@@ -24,6 +26,9 @@ let queue: StampedMessage[] = [];
 let delivering = false;
 
 export function sendMessage(message: TokenMessage): void {
+    if (getLogger().isDebugEnabled()) {
+        getLogger().debug("FCM message data: " + JSON.stringify(message.data));
+    }
     queue.push({message, createdAt: new Date()});
     deliverMessages().then();
 }
@@ -108,6 +113,7 @@ async function postpone(message: StampedMessage, error: FirebaseError | undefine
 }
 
 async function unregister(clientId: string): Promise<void> {
+    getLogger().info(`Unregistering client '${(clientId ?? '').substring(0, 6)}'`);
     const client = await Client.findOne({where: {clientId}});
     if (client != null) {
         await client.destroy();
