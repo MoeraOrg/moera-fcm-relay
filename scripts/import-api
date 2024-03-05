@@ -41,8 +41,6 @@ sed -e '1i\' \
     -e "/Action/d" \
     -e "s/| ExtStoryInfo//" \
     -e "s/IconProp/string/" \
-    -e "s/getStoryPostingId(story)/story.posting?.id/" \
-    -e "s/story.postingId/null/" \
     -e "/icon:/{" \
     -e "s/ fa/ \"fa/" \
     -e "s/,$/\",/" \

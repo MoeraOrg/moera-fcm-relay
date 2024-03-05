@@ -65,15 +65,15 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         color: "#198754",
         icon: "fa_pen_alt",
         summary: () => "",
-        target: story => ({nodeName: ":", href: `/post/${story.posting?.id}`})
+        target: story => ({nodeName: ":", href: `/post/${getStoryPostingId(story)}`})
     },
     "reaction-added-positive": {
         summary: (data, homeOwnerName, t) => buildReactionAddedSummary(data, false, t),
-        target: story => ({nodeName: ":", href: `/post/${story.posting?.id}`})
+        target: story => ({nodeName: ":", href: `/post/${getStoryPostingId(story)}`})
     },
     "reaction-added-negative": {
         summary: (data, homeOwnerName, t) => buildReactionAddedSummary(data, true, t),
-        target: story => ({nodeName: ":", href: `/post/${story.posting?.id}`})
+        target: story => ({nodeName: ":", href: `/post/${getStoryPostingId(story)}`})
     },
     "comment-reaction-added-positive": {
         summary: (data, homeOwnerName, t) => buildCommentReactionAddedSummary(data, false, homeOwnerName, t),
@@ -122,7 +122,7 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         color: "#42d042",
         icon: "fa_comment",
         summary: (data, homeOwnerName, t) => buildCommentAddedSummary(data, t),
-        target: story => ({nodeName: ":", href: `/post/${story.posting?.id}?comment=${story.remoteCommentId}`})
+        target: story => ({nodeName: ":", href: `/post/${getStoryPostingId(story)}?comment=${story.remoteCommentId}`})
     },
     "remote-comment-added": {
         color: "#42d042",
@@ -344,12 +344,8 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
     }
 };
 
-function isStoryInfo(story: StoryInfo ): story is StoryInfo {
-    return "posting" in story;
-}
-
 function getStoryPostingId(story: StoryInfo ): string | null | undefined {
-    return isStoryInfo(story) ? story.posting?.id : null;
+    return ("posting" in story ? story.posting?.id : null) ?? story.postingId;
 }
 
 export function getInstantTypeDetails(storyType: StoryType): InstantTypeDetails | null {
