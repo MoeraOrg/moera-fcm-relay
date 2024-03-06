@@ -40,7 +40,7 @@ export default async function storyAdded({story, nodeName, carte}: Params): Prom
     const target = getInstantTarget(story);
     const targetNodeName = target.nodeName === ":" ? nodeName : target.nodeName;
     const targetNodeRoot = (await resolve(targetNodeName))?.nodeUri;
-    const targetUrl = universalLocation(null, targetNodeName, targetNodeRoot, target.href);
+    const targetUrl = universalLocation(null, targetNodeName, targetNodeRoot, target.href, story.id);
 
     const details = getInstantTypeDetails(story.storyType);
     if (details == null) {
