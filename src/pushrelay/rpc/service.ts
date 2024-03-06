@@ -1,9 +1,9 @@
 import { createJSONRPCErrorResponse, JSONRPCRequest, JSONRPCServer, JSONRPCServerMiddlewareNext } from 'json-rpc-2.0';
 
-import register from "pushrelay/rpc/register";
-import feedStatus from "pushrelay/rpc/feed-status";
-import storyAdded from "pushrelay/rpc/story-added";
-import storyDeleted from "pushrelay/rpc/story-deleted";
+import register from "pushrelay/rpc/methods/register";
+import feedStatus from "pushrelay/rpc/methods/feed-status";
+import storyAdded from "pushrelay/rpc/methods/story-added";
+import storyDeleted from "pushrelay/rpc/methods/story-deleted";
 import { ServiceException } from "pushrelay/rpc/errors";
 import { getLogger } from "pushrelay/rpc";
 

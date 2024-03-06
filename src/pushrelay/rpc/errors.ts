@@ -10,6 +10,10 @@ export class ServiceError {
     static STORY_INVALID = new ServiceError(8, "story.invalid", "story has invalid format");
     static STORY_TYPE_UNKNOWN = new ServiceError(9, "story.type-unknown", "story type is unknown");
     static STORY_ID_EMPTY = new ServiceError(10, "storyId.empty", "story ID is empty");
+    static SIGNED_AT_EMPTY = new ServiceError(11, "signedAt.empty", "signedAt is empty");
+    static SIGNED_AT_TOO_OLD = new ServiceError(12, "signedAt.too-old", "signedAt is too old");
+    static SIGNATURE_EMPTY = new ServiceError(13, "signature.empty", "signature is empty");
+    static SIGNATURE_INCORRECT = new ServiceError(14, "signature.incorrect", "signature is incorrect");
 
     rpcCode: number;
     errorCode: string;

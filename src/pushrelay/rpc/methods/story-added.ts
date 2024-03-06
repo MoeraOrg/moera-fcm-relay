@@ -1,21 +1,23 @@
 import { changeLanguage } from 'i18next';
 
-import { getLogger } from "pushrelay/rpc";
 import { NODE_API_VALIDATORS, resolve, StoryInfo } from "pushrelay/api";
-import { isSchemaValid } from "pushrelay/api/schema";
-import { ServiceError, ServiceException } from "pushrelay/rpc/errors";
 import { getInstantSummary, getInstantTarget, getInstantTypeDetails } from "pushrelay/api/node/instant/instant-types";
-import { forAllClients } from "pushrelay/rpc/clients";
+import { isSchemaValid } from "pushrelay/api/schema";
 import { sendMessage } from "pushrelay/fcm";
+import { getLogger } from "pushrelay/rpc";
+import { forAllClients } from "pushrelay/rpc/clients";
+import { ServiceError, ServiceException } from "pushrelay/rpc/errors";
+import { validateMessageSignature } from "pushrelay/rpc/validators";
 import { universalLocation } from "pushrelay/util/url";
 
 interface Params {
     story?: StoryInfo | null;
     nodeName?: string | null;
-    carte?: string | null;
+    signedAt?: number | null;
+    signature?: string | null;
 }
 
-export default async function storyAdded({story, nodeName, carte}: Params): Promise<void> {
+export default async function storyAdded({story, nodeName, signedAt, signature}: Params): Promise<void> {
     getLogger().info(`Added a story ${story?.id} for node '${nodeName}'`);
     if (getLogger().isDebugEnabled() && story != null) {
         getLogger().debug("Story data: " + JSON.stringify(story));
@@ -30,12 +32,11 @@ export default async function storyAdded({story, nodeName, carte}: Params): Prom
     if (!nodeName) {
         throw new ServiceException(ServiceError.NODE_NAME_EMPTY);
     }
-    const nodeRoot = (await resolve(nodeName))?.nodeUri;
-    if (nodeRoot == null) {
+    const nodeInfo = (await resolve(nodeName));
+    if (nodeInfo == null) {
         throw new ServiceException(ServiceError.NODE_NAME_UNKNOWN);
     }
-
-    // TODO check carte
+    validateMessageSignature(nodeInfo, signedAt, signature);
 
     const target = getInstantTarget(story);
     const targetNodeName = target.nodeName === ":" ? nodeName : target.nodeName;
@@ -51,7 +52,7 @@ export default async function storyAdded({story, nodeName, carte}: Params): Prom
     let avatarUrl = "";
     let avatarShape = "circle";
     if (story.summaryAvatar?.path != null) {
-        avatarUrl = `${nodeRoot}/media/${story.summaryAvatar.path}`;
+        avatarUrl = `${nodeInfo.nodeUri}/media/${story.summaryAvatar.path}`;
         avatarShape = story.summaryAvatar.shape ?? avatarShape;
     }
 

@@ -1,16 +1,18 @@
-import { getLogger } from "pushrelay/rpc";
-import { ServiceError, ServiceException } from "pushrelay/rpc/errors";
-import { forAllClients } from "pushrelay/rpc/clients";
-import { sendMessage } from "pushrelay/fcm";
 import { resolve } from "pushrelay/api";
+import { sendMessage } from "pushrelay/fcm";
+import { getLogger } from "pushrelay/rpc";
+import { forAllClients } from "pushrelay/rpc/clients";
+import { ServiceError, ServiceException } from "pushrelay/rpc/errors";
+import { validateMessageSignature } from "pushrelay/rpc/validators";
 
 interface Params {
     storyId?: string | null;
     nodeName?: string | null;
-    carte?: string | null;
+    signedAt?: number | null;
+    signature?: string | null;
 }
 
-export default async function storyDeleted({storyId, nodeName, carte}: Params): Promise<void> {
+export default async function storyDeleted({storyId, nodeName, signedAt, signature}: Params): Promise<void> {
     getLogger().info(`Deleted a story ${storyId} for node '${nodeName}'`);
 
     if (!storyId) {
@@ -19,11 +21,11 @@ export default async function storyDeleted({storyId, nodeName, carte}: Params): 
     if (!nodeName) {
         throw new ServiceException(ServiceError.NODE_NAME_EMPTY);
     }
-    if (await resolve(nodeName) == null) {
+    const nodeInfo = await resolve(nodeName);
+    if (nodeInfo == null) {
         throw new ServiceException(ServiceError.NODE_NAME_UNKNOWN);
     }
-
-    // TODO check carte
+    validateMessageSignature(nodeInfo, signedAt, signature);
 
     await forAllClients(nodeName, (clientId, lang) => {
         const message = {

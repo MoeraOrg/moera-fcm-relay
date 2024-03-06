@@ -1,20 +1,25 @@
 import { t } from 'i18next';
 
-import { ServiceError, ServiceException } from "pushrelay/rpc/errors";
-import { getLogger } from "pushrelay/rpc";
-import { sendMessage } from "pushrelay/fcm";
 import { resolve } from "pushrelay/api";
+import { sendMessage } from "pushrelay/fcm";
+import { getLogger } from "pushrelay/rpc";
 import { forAllClients } from "pushrelay/rpc/clients";
-import { universalLocation } from "pushrelay/util/url";
+import { ServiceError, ServiceException } from "pushrelay/rpc/errors";
+import { validateMessageSignature } from "pushrelay/rpc/validators";
+import { universalLocation, urlWithParameters } from "pushrelay/util/url";
 
 interface Params {
     feedName?: string | null;
     notViewed?: number | null;
+    notViewedMoment?: number | null;
     nodeName?: string | null;
+    signedAt?: number | null;
     signature?: string | null;
 }
 
-export default async function feedStatus({feedName, notViewed, nodeName, signature}: Params): Promise<void> {
+export default async function feedStatus({
+    feedName, notViewed, notViewedMoment, nodeName, signedAt, signature
+}: Params): Promise<void> {
     getLogger().info(`Reporting feed status for node '${nodeName}' feed '${feedName}', ${notViewed} not viewed`);
 
     if (feedName !== "news") {
@@ -28,10 +33,10 @@ export default async function feedStatus({feedName, notViewed, nodeName, signatu
     if (nodeInfo == null) {
         throw new ServiceException(ServiceError.NODE_NAME_UNKNOWN);
     }
+    validateMessageSignature(nodeInfo, signedAt, signature);
 
-    // TODO check signature
-
-    const targetUrl = universalLocation(null, nodeName, nodeInfo.nodeUri, "/news");
+    const href = urlWithParameters("/news", {before: notViewedMoment});
+    const targetUrl = universalLocation(null, nodeName, nodeInfo.nodeUri, href);
     await forAllClients(nodeName, (clientId, lang) => {
         let message;
         if (notViewed != null && notViewed !== 0) {

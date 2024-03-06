@@ -88,6 +88,7 @@ function isFirebaseError(error: any): error is FirebaseError {
 }
 
 async function postpone(message: StampedMessage, error: FirebaseError | undefined): Promise<void> {
+    getLogger().debug(`FCM error: ${error?.code}`);
     switch (error?.code) {
         case "messaging/mismatched-credential":
         case "messaging/invalid-registration-token":
