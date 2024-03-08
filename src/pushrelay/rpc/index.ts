@@ -1,9 +1,10 @@
-import express, { Express, Request, Response } from 'express';
+import express, { Express } from 'express';
 import fs from 'fs/promises';
 import * as process from 'process';
 
 import rpcService from "pushrelay/rpc/service";
 import { deriveLogger, getLogger as getParentLogger } from "pushrelay/logger";
+import { Client } from "pushrelay/data/models/Client";
 
 export function initApp(): void {
     const app: Express = express();
@@ -21,11 +22,16 @@ export function initApp(): void {
         ]
     }));
 
-    app.get(["/", "/index.html"], async (req: Request, res: Response) => {
+    app.get(["/", "/index.html"], async (req, res) => {
         const view = await fs.readFile("views/index.m.html");
         const endpointUrl = `${req.protocol}://${req.hostname}/moera-push-relay/`;
         const html = view.toString().replace("{{endpointUri}}", endpointUrl)
         res.type("html").send(html);
+    });
+
+    app.get("/health", async (req, res) => {
+        await Client.findAll({limit: 1});
+        res.type("txt").send("OK");
     });
 
     app.post("/moera-push-relay", (req, res) => {
