@@ -7,11 +7,11 @@ export class ServiceError {
     static LANG_TOO_LONG = new ServiceError(5, "lang.too-long", "language code is too long");
     static NO_CLIENTS = new ServiceError(6, "node.no-clients", "the node has node clients");
     static STORY_EMPTY = new ServiceError(7, "story.empty", "story is empty");
-    static STORY_INVALID = new ServiceError(8, "story.invalid", "story has invalid format");
+    static STORY_INVALID = new ServiceError(8, "story.invalid", "story format is invalid");
     static STORY_TYPE_UNKNOWN = new ServiceError(9, "story.type-unknown", "story type is unknown");
-    static STORY_ID_EMPTY = new ServiceError(10, "storyId.empty", "story ID is empty");
-    static SIGNED_AT_EMPTY = new ServiceError(11, "signedAt.empty", "signedAt is empty");
-    static SIGNED_AT_TOO_OLD = new ServiceError(12, "signedAt.too-old", "signedAt is too old");
+    static STORY_ID_EMPTY = new ServiceError(10, "story-id.empty", "story ID is empty");
+    static SIGNED_AT_EMPTY = new ServiceError(11, "signed-at.empty", "signedAt is empty");
+    static SIGNED_AT_TOO_OLD = new ServiceError(12, "signed-at.too-old", "signedAt is too old");
     static SIGNATURE_EMPTY = new ServiceError(13, "signature.empty", "signature is empty");
     static SIGNATURE_INCORRECT = new ServiceError(14, "signature.incorrect", "signature is incorrect");
 
