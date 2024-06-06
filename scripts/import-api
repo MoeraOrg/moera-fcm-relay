@@ -17,6 +17,7 @@ cp $CLIENT/src/api/node/{api-types.ts,api-schemas.mjs} ../src/pushrelay/api/node
 
 import $CLIENT/src/api/schema.ts ../src/pushrelay/api/schema.ts
 import $CLIENT/src/api/node-name.ts ../src/pushrelay/api/node-name.ts
+import $CLIENT/src/util/rel-node-name.ts ../src/pushrelay/util/rel-node-name.ts
 
 import $CLIENT/src/ui/feed/feeds.ts ../src/pushrelay/api/node/instant/feeds.ts
 sed -e '1i\' \
@@ -36,6 +37,7 @@ sed -e '1i\' \
     -e "/\"state\//d" \
     -e "/^ *fa/d" \
     -e 's|"api"|"pushrelay/api"|' \
+    -e 's|"util/|"pushrelay/util/|' \
     -e 's|"ui/instant/instant-summaries"|"pushrelay/api/node/instant/instant-summaries"|' \
     -e "/Buttons/d" \
     -e "/Action/d" \

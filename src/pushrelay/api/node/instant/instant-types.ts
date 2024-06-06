@@ -1,6 +1,5 @@
 // This file is imported from moera-client-react and should not be modified here
 
-import {
 import i18n, { TFunction } from 'i18next';
 
 import { StoryInfo, StorySummaryData, StoryType } from "pushrelay/api";
@@ -41,7 +40,7 @@ import {
     buildUnblockedUserInPostingSummary,
     buildUnblockedUserSummary
 } from "pushrelay/api/node/instant/instant-summaries";
-import { REL_HOME, RelNodeName } from "util/rel-node-name";
+import { REL_HOME, RelNodeName } from "pushrelay/util/rel-node-name";
 
 type InstantSummarySupplier = (data: StorySummaryData, homeOwnerName: string | null, t: TFunction) => string;
 

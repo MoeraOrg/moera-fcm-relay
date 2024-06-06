@@ -9,6 +9,7 @@ import { forAllClients } from "pushrelay/rpc/clients";
 import { ServiceError, ServiceException } from "pushrelay/rpc/errors";
 import { validateMessageSignature } from "pushrelay/rpc/validators";
 import { universalLocation } from "pushrelay/util/url";
+import { absoluteNodeName } from "pushrelay/util/rel-node-name";
 
 interface Params {
     story?: StoryInfo | null;
@@ -39,7 +40,7 @@ export default async function storyAdded({story, nodeName, signedAt, signature}:
     validateMessageSignature(nodeInfo, signedAt, signature);
 
     const target = getInstantTarget(story);
-    const targetNodeName = target.nodeName === ":" ? nodeName : target.nodeName;
+    const targetNodeName = absoluteNodeName(target.nodeName, {homeOwnerNameOrUrl: nodeName, ownerNameOrUrl: nodeName});
     const targetNodeRoot = (await resolve(targetNodeName))?.nodeUri;
     const targetUrl = universalLocation(null, targetNodeName, targetNodeRoot, target.href, story.id);
 
