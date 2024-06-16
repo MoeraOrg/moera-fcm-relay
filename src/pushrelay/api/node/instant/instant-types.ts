@@ -2,7 +2,7 @@
 
 import i18n, { TFunction } from 'i18next';
 
-import { StoryInfo, StorySummaryData, StoryType } from "pushrelay/api";
+import { StoryInfo, StorySummaryData, StoryType } from "moeralib/node/types";
 import {
     buildAskedToFriendSummary,
     buildAskedToSubscribeSummary,

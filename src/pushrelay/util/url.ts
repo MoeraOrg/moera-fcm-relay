@@ -1,6 +1,5 @@
 import * as URI from 'uri-js';
-
-import { NodeName } from "pushrelay/api";
+import { shorten } from 'moeralib/naming';
 
 export function urlWithParameters(url: string,
                                   parameters: {[name: string]: string | number | boolean | null | undefined}): string {
@@ -25,7 +24,7 @@ export function universalLocation(
 ): string {
     let url = (clientUrl ?? "https://moera.page") + "/@";
     if (nodeName != null) {
-        url += encodeURIComponent(NodeName.shorten(nodeName));
+        url += encodeURIComponent(shorten(nodeName));
     }
     url += "/";
     if (nodeRoot != null) {

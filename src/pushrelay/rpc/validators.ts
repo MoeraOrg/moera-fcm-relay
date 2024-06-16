@@ -1,6 +1,6 @@
 import { addMinutes, fromUnixTime, isPast } from 'date-fns';
+import { RegisteredNameInfo } from 'moeralib/naming/types';
 
-import { RegisteredNameInfo } from "pushrelay/api";
 import { verifySignature } from "pushrelay/fingerprint";
 import { ServiceError, ServiceException } from "pushrelay/rpc/errors";
 import {

@@ -2,7 +2,7 @@
 
 import { TFunction } from 'i18next';
 
-import { StorySummaryData, StorySummaryEntry, StorySummaryNode, StorySummaryReaction } from "pushrelay/api";
+import { StorySummaryData, StorySummaryEntry, StorySummaryNode, StorySummaryReaction } from "moeralib/node/types";
 import { formatHeading, formatNodeName } from "pushrelay/api/node/instant/instant-elements";
 import { getFeedTitle } from "pushrelay/api/node/instant/feeds";
 import { tGender } from "pushrelay/i18n";

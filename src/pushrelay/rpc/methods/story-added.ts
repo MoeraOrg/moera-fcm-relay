@@ -1,8 +1,9 @@
 import { changeLanguage } from 'i18next';
+import { validateNodeSchema } from 'moeralib/node';
+import { StoryInfo } from 'moeralib/node/types';
 
-import { NODE_API_VALIDATORS, resolve, StoryInfo } from "pushrelay/api";
+import { resolve } from "pushrelay/api";
 import { getInstantSummary, getInstantTarget, getInstantTypeDetails } from "pushrelay/api/node/instant/instant-types";
-import { isSchemaValid } from "pushrelay/api/schema";
 import { sendMessage } from "pushrelay/fcm";
 import { getLogger } from "pushrelay/rpc";
 import { forAllClients } from "pushrelay/rpc/clients";
@@ -27,7 +28,7 @@ export default async function storyAdded({story, nodeName, signedAt, signature}:
     if (story == null) {
         throw new ServiceException(ServiceError.STORY_EMPTY);
     }
-    if (!isSchemaValid(NODE_API_VALIDATORS["StoryInfo"]!, story)) {
+    if (!validateNodeSchema("StoryInfo", story).valid) {
         throw new ServiceException(ServiceError.STORY_INVALID);
     }
     if (!nodeName) {

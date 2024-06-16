@@ -1,8 +1,6 @@
 import { addMinutes, differenceInSeconds, isFuture, isPast } from 'date-fns';
-
-import { RegisteredNameInfo } from "pushrelay/api/naming/api-types";
-import { getCurrent } from "pushrelay/api/naming/api-calls";
-import { NodeName } from "pushrelay/api/node-name";
+import { MoeraNaming, parseNodeName } from 'moeralib/naming';
+import { RegisteredNameInfo } from 'moeralib/naming/types';
 
 const NORMAL_TTL = 6 * 60;
 const ERROR_TTL = 1;
@@ -18,11 +16,13 @@ interface Record {
 
 const names = new Map<string, Record>();
 
+const naming = new MoeraNaming();
+
 async function fetchName(nodeName: string): Promise<RegisteredNameInfo | null> {
-    const {name, generation} = NodeName.parse(nodeName);
+    const [name, generation] = parseNodeName(nodeName);
     let info: RegisteredNameInfo | null = null;
     try {
-        info = await getCurrent(name, generation);
+        info = await naming.getCurrent(name, generation);
     } catch (e) {
         // ignore
     }
