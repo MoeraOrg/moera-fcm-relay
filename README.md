@@ -17,9 +17,9 @@
 3. Go to the project root.
 4. Copy `.env` file to `.env.local` and fill database credentials in `DATABASE`
    variable.
-5. Put a correct `moera-client-android-firebase-account.json` file to
-   the project root. It is the Firebase service account private key that you
-   need to download from the Firebase console.
+5. Put a correct `moera-client-android-firebase-account.json` file to etc/
+   subdirectory under the project root. It is the Firebase service account
+   private key that you need to download from the Firebase console.
 5. By default, the server runs on port 8101. If you want it to run on a
    different port, set the `PORT` variable in `.env.local` accordingly.
 6. Run `yarn install` or `npm install`.

@@ -26,7 +26,8 @@
   "scripts": {
     "start": "scripts/start",
     "build": "scripts/build",
-    "import-api": "scripts/import-api"
+    "import-api": "scripts/import-api",
+    "build-container": "podman build . -f Containerfile -t moera-fcm-relay"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",

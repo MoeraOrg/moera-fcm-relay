@@ -1,0 +1,11 @@
+#!/bin/bash
+
+podman run \
+    --detach \
+    --rm \
+    --env-file=.env.container.local \
+    --network=host \
+    -v ./log:/app/log \
+    -v ./etc:/app/etc:ro \
+    localhost/moera-fcm-relay:latest \
+    $@
