@@ -1,14 +1,9 @@
 import { addMinutes, fromUnixTime, isPast } from 'date-fns';
 import { RegisteredNameInfo } from 'moeralib/naming/types';
+import { createPushRelayMessageFingerprint0, createPushRelayRegisterFingerprint0 } from 'moeralib/node/fingerprints';
+import { rawToPublicKey, verifyFingerprintSignature } from 'moeralib/crypto';
 
-import { verifySignature } from "pushrelay/fingerprint";
 import { ServiceError, ServiceException } from "pushrelay/rpc/errors";
-import {
-    createPushRelayMessageFingerprint,
-    createPushRelayRegisterFingerprint,
-    PushRelayMessageFingerprintSchema,
-    PushRelayRegisterFingerprintSchema
-} from "pushrelay/rpc/fingerprints";
 
 export function validateSignatureParameters(
     signedAt: number | null | undefined, signature: string | null | undefined
@@ -30,11 +25,14 @@ export function validateRegisterSignature(
 ): void {
     validateSignatureParameters(signedAt, signature);
 
-    const signatureCorrect = verifySignature(
-        createPushRelayRegisterFingerprint(clientId, lang, signedAt!),
-        PushRelayRegisterFingerprintSchema,
-        nodeInfo.signingKey ?? null,
-        signature!
+    if (nodeInfo.signingKey == null) {
+        throw new ServiceException(ServiceError.SIGNATURE_INCORRECT);
+    }
+
+    const signatureCorrect = verifyFingerprintSignature(
+        createPushRelayRegisterFingerprint0(clientId, lang, signedAt!),
+        Buffer.from(signature!, "base64"),
+        rawToPublicKey(Buffer.from(nodeInfo.signingKey, "base64"))
     );
 
     if (!signatureCorrect) {
@@ -47,11 +45,14 @@ export function validateMessageSignature(
 ): void {
     validateSignatureParameters(signedAt, signature);
 
-    const signatureCorrect = verifySignature(
-        createPushRelayMessageFingerprint(signedAt!),
-        PushRelayMessageFingerprintSchema,
-        nodeInfo.signingKey ?? null,
-        signature!
+    if (nodeInfo.signingKey == null) {
+        throw new ServiceException(ServiceError.SIGNATURE_INCORRECT);
+    }
+
+    const signatureCorrect = verifyFingerprintSignature(
+        createPushRelayMessageFingerprint0(signedAt!),
+        Buffer.from(signature!, "base64"),
+        rawToPublicKey(Buffer.from(nodeInfo.signingKey, "base64"))
     );
 
     if (!signatureCorrect) {
