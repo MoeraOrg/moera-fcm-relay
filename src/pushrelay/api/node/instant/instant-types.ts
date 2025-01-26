@@ -355,7 +355,37 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
             nodeName: REL_HOME,
             href: "/news"
         }),
-    }
+    },
+    "search-report": {
+        color: "#198754",
+        icon: "fa_pen_alt",
+        summary: () => "",
+        target: story => ({nodeName: REL_HOME, href: "/"})
+    },
+    "reminder-full-name": {
+        color: "#198754",
+        icon: "fa_pen_alt",
+        summary: () => "",
+        target: story => ({nodeName: REL_HOME, href: "/"})
+    },
+    "reminder-avatar": {
+        color: "#198754",
+        icon: "fa_pen_alt",
+        summary: () => "",
+        target: story => ({nodeName: REL_HOME, href: "/"})
+    },
+    "reminder-email": {
+        color: "#198754",
+        icon: "fa_pen_alt",
+        summary: () => "",
+        target: story => ({nodeName: REL_HOME, href: "/"})
+    },
+    "reminder-sheriff-allow": {
+        color: "#198754",
+        icon: "fa_pen_alt",
+        summary: () => "",
+        target: story => ({nodeName: REL_HOME, href: "/"})
+    },
 };
 
 function getStoryPostingId(story: StoryInfo ): string | null | undefined {
