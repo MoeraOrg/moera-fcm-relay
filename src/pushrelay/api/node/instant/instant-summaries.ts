@@ -9,9 +9,16 @@ import { tGender } from "pushrelay/i18n";
 
 function formatReaction(reaction: StorySummaryReaction | null | undefined): string {
     let emoji = reaction?.emoji ?? 0x1f44d;
+    if (emoji === 0x1f4a1) {
+        emoji = 0x1f914;
+    }
     if (emoji === 0x1f620) {
         emoji = 0x1f92c;
     }
+    if (emoji === 0x1f643) {
+        emoji = 0x1f921;
+    }
+
     return String.fromCodePoint(emoji) + " " + formatNodeName(reaction);
 }
 
