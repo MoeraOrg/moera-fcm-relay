@@ -1424,10 +1424,10 @@ minimatch@^3.0.4:
   dependencies:
     brace-expansion "^1.1.7"
 
-moeralib@^0.15.5:
-  version "0.15.5"
-  resolved "https://registry.yarnpkg.com/moeralib/-/moeralib-0.15.5.tgz#f42b2aaf66d0a6ab4e490a2f5891b54dcae03e35"
-  integrity sha512-+I2phGtpxYCTJhjE9auRT6ZrDGiGNY84majnA0F/5kUHvLpy0hBwFe810dQJy3rwSWD20qN7SfpQnmNlwfi7JA==
+moeralib@^0.17.1:
+  version "0.17.1"
+  resolved "https://registry.yarnpkg.com/moeralib/-/moeralib-0.17.1.tgz#1d344341996b8dcfc13a7a7c5fc07026fd62c20d"
+  integrity sha512-FXQxx9e60xfgoeykBdFzDYbcJlFRB8h31TnSBLewfI78qiAt558FnmivFMYz3Ik2j6dEAPpTgoJyozpDNqvXmQ==
   dependencies:
     "@scure/bip39" "^1.3.0"
     ajv "^8.16.0"

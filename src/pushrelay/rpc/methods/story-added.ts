@@ -41,7 +41,9 @@ export default async function storyAdded({story, nodeName, signedAt, signature}:
     validateMessageSignature(nodeInfo, signedAt, signature);
 
     const target = getInstantTarget(story);
-    const targetNodeName = absoluteNodeName(target.nodeName, {homeOwnerNameOrUrl: nodeName, ownerNameOrUrl: nodeName});
+    const targetNodeName = absoluteNodeName(
+        target.nodeName, {homeOwnerNameOrUrl: nodeName, ownerNameOrUrl: nodeName, searchName: "search_0"}
+    );
     const targetNodeRoot = (await resolve(targetNodeName))?.nodeUri;
     const targetUrl = universalLocation(null, targetNodeName, targetNodeRoot, target.href, story.id);
 
