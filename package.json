@@ -1,6 +1,6 @@
 {
   "name": "moera-fcm-relay",
-  "version": "0.4.0",
+  "version": "0.5.0-SNAPSHOT",
   "private": true,
   "dependencies": {
     "ajv": "^8.16.0",

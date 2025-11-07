@@ -14,7 +14,14 @@ cd `dirname $0`
 
 import $CLIENT/src/util/rel-node-name.ts ../src/pushrelay/util/rel-node-name.ts
 
-import $CLIENT/src/ui/feed/feeds.ts ../src/pushrelay/api/node/instant/feeds.ts
+sed -e '1i\' \
+    -e '// This file is imported from moera-client-react and should not be modified here' \
+    -e "/'react-redux'/d" \
+    -e "/\"state\//d" \
+    -e '/"util/d' \
+    -e '/^export .*use/Q' \
+    < $CLIENT/src/ui/feed/feeds.ts \
+    > ../src/pushrelay/api/node/instant/feeds.ts
 sed -e '1i\' \
     -e '// This file is imported from moera-client-react and should not be modified here\' \
     -e '' \
@@ -28,18 +35,19 @@ sed -e '1i\' \
     -e '// This file is imported from moera-client-react and should not be modified here\' \
     -e '' \
     -e "/'react'/d" \
-    -e "/@fortawesome/d" \
+    -e "/material-symbols/d" \
     -e "/\"state\//d" \
-    -e "/^ *fa/d" \
+    -e "/^ *MaterialSymbol,/d" \
+    -e "/^ *ms/d" \
     -e 's|"api"|"moeralib/node/types"|' \
     -e 's|"util/|"pushrelay/util/|' \
     -e 's|"ui/instant/instant-summaries"|"pushrelay/api/node/instant/instant-summaries"|' \
     -e "/Buttons/d" \
     -e "/Action/d" \
     -e "s/| ExtStoryInfo//" \
-    -e "s/IconProp/string/" \
+    -e "s/MaterialSymbol/string/" \
     -e "/icon:/{" \
-    -e "s/ fa/ \"fa/" \
+    -e "s/ ms/ \"fa/" \
     -e "s/,$/\",/" \
     -e "s/\([a-z]\)\([A-Z]\)/\1_\L\2/g" \
     -e "}" \

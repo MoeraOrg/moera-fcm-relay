@@ -9,6 +9,7 @@ import { tGender } from "pushrelay/i18n";
 
 function formatReaction(reaction: StorySummaryReaction | null | undefined): string {
     let emoji = reaction?.emoji ?? 0x1f44d;
+    // Do not forget to change the <Twemoji> component
     if (emoji === 0x1f4a1) {
         emoji = 0x1f914;
     }

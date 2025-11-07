@@ -9,6 +9,8 @@ export function getFeedTitle(feedName: string | null | undefined, t?: TFunction)
             return te("feed-title.timeline");
         case "news":
             return te("feed-title.news");
+        case "explore":
+            return te("feed-title.explore");
         case null:
         case undefined:
             return te("feed-title.timeline");
@@ -16,3 +18,4 @@ export function getFeedTitle(feedName: string | null | undefined, t?: TFunction)
             return feedName;
     }
 }
+

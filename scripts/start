@@ -2,7 +2,7 @@
 
 scripts/compile || exit 1
 
-cp -r .env* moera-client-android-firebase-account.json target/
+cp -r .env* etc/ target/
 
 echo 'Starting...'
 cd target/
