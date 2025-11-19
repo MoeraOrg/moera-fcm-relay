@@ -47,7 +47,7 @@ sed -e '1i\' \
     -e "s/| ExtStoryInfo//" \
     -e "s/MaterialSymbol/string/" \
     -e "/icon:/{" \
-    -e "s/ ms/ \"fa/" \
+    -e "s/ ms/ \"ms/" \
     -e "s/,$/\",/" \
     -e "s/\([a-z]\)\([A-Z]\)/\1_\L\2/g" \
     -e "}" \
