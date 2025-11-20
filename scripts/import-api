@@ -52,10 +52,11 @@ sed -e '1i\' \
     -e "s/\([a-z]\)\([A-Z]\)/\1_\L\2/g" \
     -e "}" \
     -e "s/var(--bs-green)/#198754/" \
+    -e "s/var(--bs-green-400)/#479f76/" \
     -e "s/var(--bs-blue)/#0d6efd/" \
     -e "s/var(--bs-indigo)/#6610f2/" \
     -e "s/var(--bs-teal)/#20c997/" \
-    -e "s/var(--green-light)/#42d042/" \
+    -e "s/var(--bs-orange)/#fd7e14/" \
     -e "s/var(--incorrect)/#dc3545/" \
     -e "s/var(--correct)/#228b22/" \
     < $CLIENT/src/ui/instant/instant-types.ts \

@@ -121,7 +121,7 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: "/"})
     },
     "comment-added": {
-        color: "var(--bs-green-400)",
+        color: "#479f76",
         icon: "ms_comment",
         summary: (data, homeOwnerName, t) => buildCommentAddedSummary(data, t),
         target: story => ({
@@ -130,7 +130,7 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         })
     },
     "remote-comment-added": {
-        color: "var(--bs-green-400)",
+        color: "#479f76",
         icon: "ms_comment",
         summary: (data, homeOwnerName, t) => buildRemoteCommentAddedSummary(data, homeOwnerName, t),
         target: story => ({
@@ -140,7 +140,7 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         sheriffFields: ["posting", "comments"]
     },
     "reply-comment": {
-        color: "var(--bs-green-400)",
+        color: "#479f76",
         icon: "ms_reply_solid",
         summary: (data, homeOwnerName, t) => buildReplyCommentSummary(data, homeOwnerName, t),
         target: story => ({
@@ -348,7 +348,7 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         })
     },
     "defrosting": {
-        color: "var(--bs-orange)",
+        color: "#fd7e14",
         icon: "ms_partly_cloudy_day",
         summary: (data, homeOwnerName, t) => buildDefrostingSummary(t),
         target: story => ({
