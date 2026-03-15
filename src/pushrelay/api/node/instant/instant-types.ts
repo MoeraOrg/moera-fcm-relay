@@ -11,6 +11,7 @@ import {
     buildCommentAddedSummary,
     buildCommentMediaReactionAddedSummary,
     buildCommentMediaReactionFailedSummary,
+    buildCommentNeedsApprovalSummary,
     buildCommentPostTaskFailedSummary,
     buildCommentReactionAddedSummary,
     buildCommentReactionTaskFailedSummary,
@@ -28,6 +29,8 @@ import {
     buildPostingSubscribeTaskFailedSummary,
     buildPostingUpdatedSummary,
     buildPostingUpdateTaskFailedSummary,
+    buildPremoderatedCommentAcceptedSummary,
+    buildPremoderatedCommentRejectedSummary,
     buildReactionAddedSummary,
     buildRemoteCommentAddedSummary,
     buildReplyCommentSummary,
@@ -41,6 +44,7 @@ import {
     buildUnblockedUserSummary
 } from "pushrelay/api/node/instant/instant-summaries";
 import { REL_HOME, RelNodeName } from "pushrelay/util/rel-node-name";
+import { ut } from "pushrelay/util/url";
 
 type InstantSummarySupplier = (data: StorySummaryData, homeOwnerName: string | null, t: TFunction) => string;
 
@@ -67,35 +71,35 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         color: "#198754",
         icon: "ms_ink_pen",
         summary: () => "",
-        target: story => ({nodeName: REL_HOME, href: `/post/${getStoryPostingId(story)}`})
+        target: story => ({nodeName: REL_HOME, href: ut`/post/${getStoryPostingId(story)}`})
     },
     "reaction-added-positive": {
         summary: (data, homeOwnerName, t) => buildReactionAddedSummary(data, false, t),
-        target: story => ({nodeName: REL_HOME, href: `/post/${getStoryPostingId(story)}`})
+        target: story => ({nodeName: REL_HOME, href: ut`/post/${getStoryPostingId(story)}`})
     },
     "reaction-added-negative": {
         summary: (data, homeOwnerName, t) => buildReactionAddedSummary(data, true, t),
-        target: story => ({nodeName: REL_HOME, href: `/post/${getStoryPostingId(story)}`})
+        target: story => ({nodeName: REL_HOME, href: ut`/post/${getStoryPostingId(story)}`})
     },
     "comment-reaction-added-positive": {
         summary: (data, homeOwnerName, t) => buildCommentReactionAddedSummary(data, false, homeOwnerName, t),
         target: story => ({
             nodeName: story.remoteNodeName ?? REL_HOME,
-            href: `/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
+            href: ut`/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
         })
     },
     "comment-reaction-added-negative": {
         summary: (data, homeOwnerName, t) => buildCommentReactionAddedSummary(data, true, homeOwnerName, t),
         target: story => ({
             nodeName: story.remoteNodeName ?? REL_HOME,
-            href: `/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
+            href: ut`/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
         })
     },
     "mention-posting": {
         color: "#0d6efd",
         icon: "ms_alternate_email",
         summary: (data, homeOwnerName, t) => buildMentionPostingSummary(data, t),
-        target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: `/post/${story.remotePostingId}`}),
+        target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: ut`/post/${story.remotePostingId}`}),
         sheriffFields: ["posting"]
     },
     "mention-comment": {
@@ -104,7 +108,7 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         summary: (data, homeOwnerName, t) => buildMentionCommentSummary(data, homeOwnerName, t),
         target: story => ({
             nodeName: story.remoteNodeName ?? REL_HOME,
-            href: `/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
+            href: ut`/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
         }),
         sheriffFields: ["posting", "comment"]
     },
@@ -126,7 +130,7 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         summary: (data, homeOwnerName, t) => buildCommentAddedSummary(data, t),
         target: story => ({
             nodeName: REL_HOME,
-            href: `/post/${getStoryPostingId(story)}?comment=${story.remoteCommentId}`
+            href: ut`/post/${getStoryPostingId(story)}?comment=${story.remoteCommentId}`
         })
     },
     "remote-comment-added": {
@@ -135,7 +139,7 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         summary: (data, homeOwnerName, t) => buildRemoteCommentAddedSummary(data, homeOwnerName, t),
         target: story => ({
             nodeName: story.remoteNodeName ?? REL_HOME,
-            href: `/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
+            href: ut`/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
         }),
         sheriffFields: ["posting", "comments"]
     },
@@ -145,7 +149,7 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         summary: (data, homeOwnerName, t) => buildReplyCommentSummary(data, homeOwnerName, t),
         target: story => ({
             nodeName: story.remoteNodeName ?? REL_HOME,
-            href: `/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
+            href: ut`/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
         }),
         sheriffFields: ["posting", "comments"]
     },
@@ -153,7 +157,7 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         color: "#dc3545",
         icon: "ms_error",
         summary: (data, homeOwnerName, t) => buildCommentPostTaskFailedSummary(data, t),
-        target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: `/post/${story.remotePostingId}`})
+        target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: ut`/post/${story.remotePostingId}`})
     },
     "comment-update-task-failed": {
         color: "#dc3545",
@@ -161,14 +165,14 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         summary: (data, homeOwnerName, t) => buildCommentUpdateTaskFailedSummary(data, t),
         target: story => ({
             nodeName: story.remoteNodeName ?? REL_HOME,
-            href: `/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
+            href: ut`/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
         })
     },
     "posting-updated": {
         color: "#198754",
         icon: "ms_ink_pen",
         summary: (data, homeOwnerName, t) => buildPostingUpdatedSummary(data, t),
-        target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: `/post/${story.remotePostingId}`})
+        target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: ut`/post/${story.remotePostingId}`})
     },
     "posting-post-task-failed": {
         color: "#dc3545",
@@ -180,34 +184,34 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         color: "#dc3545",
         icon: "ms_error",
         summary: (data, homeOwnerName, t) => buildPostingUpdateTaskFailedSummary(data, t),
-        target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: `/post/${story.remotePostingId}`})
+        target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: ut`/post/${story.remotePostingId}`})
     },
     "posting-media-reaction-added-positive": {
         summary: (data, homeOwnerName, t) => buildPostingMediaReactionAddedSummary(data, false, homeOwnerName, t),
         target: story => ({
             nodeName: story.remoteNodeName ?? REL_HOME,
-            href: `/post/${story.remotePostingId}?media=${story.remoteMediaId}`
+            href: ut`/post/${story.remotePostingId}?media=${story.remoteMediaId}`
         })
     },
     "posting-media-reaction-added-negative": {
         summary: (data, homeOwnerName, t) => buildPostingMediaReactionAddedSummary(data, true, homeOwnerName, t),
         target: story => ({
             nodeName: story.remoteNodeName ?? REL_HOME,
-            href: `/post/${story.remotePostingId}?media=${story.remoteMediaId}`
+            href: ut`/post/${story.remotePostingId}?media=${story.remoteMediaId}`
         })
     },
     "comment-media-reaction-added-positive": {
         summary: (data, homeOwnerName, t) => buildCommentMediaReactionAddedSummary(data, false, homeOwnerName, t),
         target: story => ({
             nodeName: story.remoteNodeName ?? REL_HOME,
-            href: `/post/${story.remotePostingId}?comment=${story.remoteCommentId}&media=${story.remoteMediaId}`
+            href: ut`/post/${story.remotePostingId}?comment=${story.remoteCommentId}&media=${story.remoteMediaId}`
         })
     },
     "comment-media-reaction-added-negative": {
         summary: (data, homeOwnerName, t) => buildCommentMediaReactionAddedSummary(data, true, homeOwnerName, t),
         target: story => ({
             nodeName: story.remoteNodeName ?? REL_HOME,
-            href: `/post/${story.remotePostingId}?comment=${story.remoteCommentId}&media=${story.remoteMediaId}`
+            href: ut`/post/${story.remotePostingId}?comment=${story.remoteCommentId}&media=${story.remoteMediaId}`
         })
     },
     "posting-media-reaction-failed": {
@@ -216,7 +220,7 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         summary: (data, homeOwnerName, t) => buildPostingMediaReactionFailedSummary(data, t),
         target: story => ({
             nodeName: story.remoteNodeName ?? REL_HOME,
-            href: `/post/${story.remotePostingId}?media=${story.remoteMediaId}`
+            href: ut`/post/${story.remotePostingId}?media=${story.remoteMediaId}`
         })
     },
     "comment-media-reaction-failed": {
@@ -225,20 +229,20 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         summary: (data, homeOwnerName, t) => buildCommentMediaReactionFailedSummary(data, t),
         target: story => ({
             nodeName: story.remoteNodeName ?? REL_HOME,
-            href: `/post/${story.remotePostingId}?comment=${story.remoteCommentId}&media=${story.remoteMediaId}`
+            href: ut`/post/${story.remotePostingId}?comment=${story.remoteCommentId}&media=${story.remoteMediaId}`
         })
     },
     "posting-subscribe-task-failed": {
         color: "#dc3545",
         icon: "ms_error",
         summary: (data, homeOwnerName, t) => buildPostingSubscribeTaskFailedSummary(data, t),
-        target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: `/post/${story.remotePostingId}`})
+        target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: ut`/post/${story.remotePostingId}`})
     },
     "posting-reaction-task-failed": {
         color: "#dc3545",
         icon: "ms_error",
         summary: (data, homeOwnerName, t) => buildPostingReactionTaskFailedSummary(data, t),
-        target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: `/post/${story.remotePostingId}`})
+        target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: ut`/post/${story.remotePostingId}`})
     },
     "comment-reaction-task-failed": {
         color: "#dc3545",
@@ -246,7 +250,7 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         summary: (data, homeOwnerName, t) => buildCommentReactionTaskFailedSummary(data, t),
         target: story => ({
             nodeName: story.remoteNodeName ?? REL_HOME,
-            href: `/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
+            href: ut`/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
         })
     },
     "friend-added": {
@@ -295,13 +299,13 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         color: "#dc3545",
         icon: "ms_block",
         summary: (data, homeOwnerName, t) => buildBlockedUserInPostingSummary(data, t),
-        target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: `/post/${story.remotePostingId}`}),
+        target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: ut`/post/${story.remotePostingId}`}),
     },
     "unblocked-user-in-posting": {
         color: "#228b22",
         icon: "ms_block",
         summary: (data, homeOwnerName, t) => buildUnblockedUserInPostingSummary(data, t),
-        target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: `/post/${story.remotePostingId}`})
+        target: story => ({nodeName: story.remoteNodeName ?? REL_HOME, href: ut`/post/${story.remotePostingId}`})
     },
     "sheriff-marked": {
         color: "#dc3545",
@@ -312,8 +316,8 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
             href: story.remotePostingId == null
                 ? "/"
                 : story.remoteCommentId == null
-                    ? `/post/${story.remotePostingId}`
-                    : `/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
+                    ? ut`/post/${story.remotePostingId}`
+                    : ut`/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
         }),
     },
     "sheriff-unmarked": {
@@ -325,8 +329,8 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
             href: story.remotePostingId == null
                 ? "/"
                 : story.remoteCommentId == null
-                    ? `/post/${story.remotePostingId}`
-                    : `/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
+                    ? ut`/post/${story.remotePostingId}`
+                    : ut`/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
         }),
     },
     "sheriff-complaint-added": {
@@ -335,7 +339,7 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         summary: (data, homeOwnerName, t) => buildSheriffComplaintAddedSummary(t),
         target: story => ({
             nodeName: story.summaryNodeName ?? REL_HOME,
-            href: `/complaints/${story.summaryData?.sheriff?.complaintId}`
+            href: ut`/complaints/${story.summaryData?.sheriff?.complaintId}`
         })
     },
     "sheriff-complaint-decided": {
@@ -344,7 +348,7 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         summary: (data, homeOwnerName, t) => buildSheriffComplaintDecidedSummary(data, homeOwnerName, t),
         target: story => ({
             nodeName: story.summaryNodeName ?? REL_HOME,
-            href: `/complaints/${story.summaryData?.sheriff?.complaintId}`
+            href: ut`/complaints/${story.summaryData?.sheriff?.complaintId}`
         })
     },
     "defrosting": {
@@ -385,6 +389,33 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
         icon: "ms_ink_pen",
         summary: () => "",
         target: story => ({nodeName: REL_HOME, href: "/"})
+    },
+    "comment-needs-approval": {
+        color: "#6610f2",
+        icon: "ms_rule",
+        summary: (data, homeOwnerName, t) => buildCommentNeedsApprovalSummary(data, t),
+        target: story => ({
+            nodeName: REL_HOME,
+            href: ut`/post/${getStoryPostingId(story)}?comment=${story.commentId}`
+        })
+    },
+    "premoderated-comment-accepted": {
+        color: "#228b22",
+        icon: "ms_rule",
+        summary: (data, homeOwnerName, t) => buildPremoderatedCommentAcceptedSummary(data, homeOwnerName, t),
+        target: story => ({
+            nodeName: story.summaryNodeName ?? REL_HOME,
+            href: ut`/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
+        })
+    },
+    "premoderated-comment-rejected": {
+        color: "#dc3545",
+        icon: "ms_rule",
+        summary: (data, homeOwnerName, t) => buildPremoderatedCommentRejectedSummary(data, homeOwnerName, t),
+        target: story => ({
+            nodeName: story.summaryNodeName ?? REL_HOME,
+            href: ut`/post/${story.remotePostingId}`
+        })
     },
 };
 

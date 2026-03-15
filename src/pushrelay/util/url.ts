@@ -1,8 +1,10 @@
 import * as URI from 'uri-js';
 import { shorten } from 'moeralib/naming';
 
-export function urlWithParameters(url: string,
-                                  parameters: {[name: string]: string | number | boolean | null | undefined}): string {
+export function urlWithParameters(
+    url: string,
+    parameters: {[name: string]: string | number | boolean | null | undefined}
+): string {
     let query = "";
     for (let name in parameters) {
         if (parameters.hasOwnProperty(name)) {
@@ -18,9 +20,27 @@ export function urlWithParameters(url: string,
     return url + (url.indexOf("?") < 0 ? "?" : "&") + query;
 }
 
+export function ut(strings: TemplateStringsArray, ...args: any[]): string {
+    const all = [];
+    let i = 0;
+    while (i < strings.length || i < args.length) {
+        if (i < strings.length) {
+            all.push(strings[i]);
+        }
+        if (i < args.length) {
+            all.push(encodeURIComponent(args[i]));
+        }
+        i++;
+    }
+    return all.join("");
+}
+
 export function universalLocation(
-    clientUrl: string | null, nodeName: string | null | undefined, nodeRoot: string | null | undefined,
-    location: string, readId?: string | null
+    clientUrl: string | null,
+    nodeName: string | null | undefined,
+    nodeRoot: string | null | undefined,
+    location: string,
+    readId?: string | null
 ): string {
     let url = (clientUrl ?? "https://moera.page") + "/@";
     if (nodeName != null) {

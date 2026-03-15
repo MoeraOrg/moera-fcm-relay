@@ -23,8 +23,12 @@ function formatReaction(reaction: StorySummaryReaction | null | undefined): stri
     return String.fromCodePoint(emoji) + " " + formatNodeName(reaction);
 }
 
-function formatList<T>(entries: T[] | null | undefined, total: number | null | undefined,
-                       formatter: (entry: T) => string, t: TFunction): string {
+function formatList<T>(
+    entries: T[] | null | undefined,
+    total: number | null | undefined,
+    formatter: (entry: T) => string,
+    t: TFunction
+): string {
     let summary = "";
     if (entries != null && total != null) {
         if (entries.length > 0) {
@@ -71,9 +75,17 @@ function isByFirstCommentOwner(data: StorySummaryData, node: StorySummaryNode | 
     return data.totalComments === 1 && data.comments?.length === 1 && node?.ownerName === data.comments[0].ownerName;
 }
 
-function formatSomebodysPosting(data: StorySummaryData, homeOwnerName: string | null,
-                                isTheir: IsTheirPredicate, theirGender: string | null | undefined,
-                                t: TFunction): string {
+function isByPostingOwner(data: StorySummaryData, node: StorySummaryNode | StorySummaryEntry): boolean {
+    return node.ownerName === data.posting?.ownerName;
+}
+
+function formatSomebodysPosting(
+    data: StorySummaryData,
+    homeOwnerName: string | null,
+    isTheir: IsTheirPredicate,
+    theirGender: string | null | undefined,
+    t: TFunction
+): string {
     if (data.posting?.ownerName === homeOwnerName) {
         return t("instant-summary.your-post");
     } else if (data.posting != null && isTheir(data, data.posting)) {
@@ -83,9 +95,13 @@ function formatSomebodysPosting(data: StorySummaryData, homeOwnerName: string | 
     }
 }
 
-function formatOnSomebodysPosting(data: StorySummaryData, homeOwnerName: string | null,
-                                  isTheir: IsTheirPredicate, theirGender: string | null | undefined,
-                                  t: TFunction): string {
+function formatOnSomebodysPosting(
+    data: StorySummaryData,
+    homeOwnerName: string | null,
+    isTheir: IsTheirPredicate,
+    theirGender: string | null | undefined,
+    t: TFunction
+): string {
     if (data.posting?.ownerName === homeOwnerName) {
         return t("instant-summary.on-your-post");
     } else if (data.posting != null && isTheir(data, data.posting)) {
@@ -95,9 +111,13 @@ function formatOnSomebodysPosting(data: StorySummaryData, homeOwnerName: string 
     }
 }
 
-function formatInSomebodysNode(data: StorySummaryData, homeOwnerName: string | null,
-                               isTheir: IsTheirPredicate, theirGender: string | null | undefined,
-                               t: TFunction): string {
+function formatInSomebodysNode(
+    data: StorySummaryData,
+    homeOwnerName: string | null,
+    isTheir: IsTheirPredicate,
+    theirGender: string | null | undefined,
+    t: TFunction
+): string {
     if (data.node?.ownerName === homeOwnerName) {
         return t("instant-summary.in-your-blog");
     } else if (data.node != null && isTheir(data, data.node)) {
@@ -210,8 +230,12 @@ export function buildReplyCommentSummary(data: StorySummaryData, homeOwnerName: 
     });
 }
 
-export function buildCommentReactionAddedSummary(data: StorySummaryData, negative: boolean,
-                                                 homeOwnerName: string | null, t: TFunction): string {
+export function buildCommentReactionAddedSummary(
+    data: StorySummaryData,
+    negative: boolean,
+    homeOwnerName: string | null,
+    t: TFunction
+): string {
     return t("instant-summary.story.comment-reaction-added", {
         reactions: formatListOfReactions(data, negative, t),
         heading: formatHeading(data.comment),
@@ -219,8 +243,11 @@ export function buildCommentReactionAddedSummary(data: StorySummaryData, negativ
     });
 }
 
-export function buildRemoteCommentAddedSummary(data: StorySummaryData,
-                                               homeOwnerName: string | null, t: TFunction): string {
+export function buildRemoteCommentAddedSummary(
+    data: StorySummaryData,
+    homeOwnerName: string | null,
+    t: TFunction
+): string {
     return t("instant-summary.story.remote-comment-added", {
         comments: formatListOfComments(data, t),
         count: data.totalComments ?? 1,
@@ -271,8 +298,12 @@ export function buildPostingUpdateTaskFailedSummary(data: StorySummaryData, t: T
     });
 }
 
-export function buildPostingMediaReactionAddedSummary(data: StorySummaryData, negative: boolean,
-                                                      homeOwnerName: string | null, t: TFunction): string {
+export function buildPostingMediaReactionAddedSummary(
+    data: StorySummaryData,
+    negative: boolean,
+    homeOwnerName: string | null,
+    t: TFunction
+): string {
     return t("instant-summary.story.posting-media-reaction-added", {
         reactions: formatListOfReactions(data, negative, t),
         heading: formatHeading(data.posting),
@@ -280,8 +311,12 @@ export function buildPostingMediaReactionAddedSummary(data: StorySummaryData, ne
     });
 }
 
-export function buildCommentMediaReactionAddedSummary(data: StorySummaryData, negative: boolean,
-                                                      homeOwnerName: string | null, t: TFunction): string {
+export function buildCommentMediaReactionAddedSummary(
+    data: StorySummaryData,
+    negative: boolean,
+    homeOwnerName: string | null,
+    t: TFunction
+): string {
     return t("instant-summary.story.comment-media-reaction-added", {
         reactions: formatListOfReactions(data, negative, t),
         heading: formatHeading(data.comment),
@@ -436,13 +471,21 @@ export function buildUnblockedUserInPostingSummary(data: StorySummaryData, t: TF
     });
 }
 
-export function buildSheriffMarkedSummary(data: StorySummaryData, homeOwnerName: string | null, t: TFunction): string {
+export function buildSheriffMarkedSummary(
+    data: StorySummaryData,
+    homeOwnerName: string | null,
+    t: TFunction
+): string {
     return t("instant-summary.story.sheriff-marked", {
         target: formatSheriffTarget(data, homeOwnerName, t)
     });
 }
 
-export function buildSheriffUnmarkedSummary(data: StorySummaryData, homeOwnerName: string | null, t: TFunction): string {
+export function buildSheriffUnmarkedSummary(
+    data: StorySummaryData,
+    homeOwnerName: string | null,
+    t: TFunction
+): string {
     return t("instant-summary.story.sheriff-unmarked", {
         target: formatSheriffTarget(data, homeOwnerName, t)
     });
@@ -453,7 +496,9 @@ export function buildSheriffComplaintAddedSummary(t: TFunction): string {
 }
 
 export function buildSheriffComplaintDecidedSummary(
-    data: StorySummaryData, homeOwnerName: string | null, t: TFunction
+    data: StorySummaryData,
+    homeOwnerName: string | null,
+    t: TFunction
 ): string {
     return t("instant-summary.story.sheriff-complaint-decided", {
         target: formatSheriffTarget(data, homeOwnerName, t)
@@ -462,4 +507,35 @@ export function buildSheriffComplaintDecidedSummary(
 
 export function buildDefrostingSummary(t: TFunction): string {
     return t("instant-summary.story.defrosting");
+}
+
+export function buildCommentNeedsApprovalSummary(data: StorySummaryData, t: TFunction): string {
+    return t("instant-summary.story.comment-needs-approval", {
+        node: formatNodeName(data.comment),
+        heading: formatHeading(data.posting),
+    });
+}
+
+export function buildPremoderatedCommentAcceptedSummary(
+    data: StorySummaryData, homeOwnerName: string | null, t: TFunction
+): string {
+    return t("instant-summary.story.premoderated-comment-accepted", {
+        node: formatNodeName(data.posting),
+        nodeGender: tGender(data.posting?.ownerGender),
+        commentHeading: formatHeading(data.comment),
+        posting: formatOnSomebodysPosting(data, homeOwnerName, isByPostingOwner, data.posting?.ownerGender, t),
+        postingHeading: formatHeading(data.posting)
+    });
+}
+
+export function buildPremoderatedCommentRejectedSummary(
+    data: StorySummaryData, homeOwnerName: string | null, t: TFunction
+): string {
+    return t("instant-summary.story.premoderated-comment-rejected", {
+        node: formatNodeName(data.posting),
+        nodeGender: tGender(data.posting?.ownerGender),
+        commentHeading: formatHeading(data.comment),
+        posting: formatOnSomebodysPosting(data, homeOwnerName, isByPostingOwner, data.posting?.ownerGender, t),
+        postingHeading: formatHeading(data.posting)
+    });
 }
