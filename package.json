@@ -1,26 +1,26 @@
 {
   "name": "moera-fcm-relay",
-  "version": "0.5.0",
+  "version": "0.6.0-SNAPSHOT",
   "private": true,
   "dependencies": {
     "ajv": "^8.18.0",
     "date-fns": "^4.1.0",
-    "dotenv": "^17.2.3",
-    "express": "~5.2.0",
-    "firebase-admin": "^12.0.0",
+    "dotenv": "^17.3.1",
+    "express": "~5.2.1",
+    "firebase-admin": "^13.7.0",
     "html-entities": "^2.6.0",
-    "i18next": "^25.6.1",
-    "i18next-icu": "^2.4.1",
-    "intl-messageformat": "^10.7.18",
+    "i18next": "^25.8.18",
+    "i18next-icu": "^2.4.3",
+    "intl-messageformat": "^11.1.2",
     "json-rpc-2.0": "^1.7.1",
-    "moeralib": "^0.17.10",
-    "pg": "^8.16.3",
+    "moeralib": "^0.18.1",
+    "pg": "^8.20.0",
     "pg-hstore": "^2.3.4",
     "reflect-metadata": "^0.2.2",
     "sequelize": "^6.37.8",
     "sequelize-typescript": "^2.1.6",
     "uri-js": "^4.4.1",
-    "winston": "^3.18.3",
+    "winston": "^3.19.0",
     "winston-daily-rotate-file": "^5.0.0"
   },
   "scripts": {
@@ -30,8 +30,8 @@
     "build-container": "podman build . -f Containerfile -t moera-fcm-relay"
   },
   "devDependencies": {
-    "@types/express": "^5.0.5",
-    "@types/node": "^20.11.20",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.5.0",
     "typescript": "^5.9.3"
   }
 }
