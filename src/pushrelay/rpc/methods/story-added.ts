@@ -67,6 +67,7 @@ export default async function storyAdded({story, nodeName, signedAt, signature}:
             data: {
                 avatarUrl,
                 avatarShape,
+                summaryNodeName: story.summaryNodeName ?? "",
                 summary,
                 smallIcon,
                 color: details.color ?? "#adb5bd",
