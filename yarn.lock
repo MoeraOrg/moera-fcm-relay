@@ -502,7 +502,7 @@ ajv-formats@^3.0.1:
   dependencies:
     ajv "^8.0.0"
 
-ajv@^8.0.0, ajv@^8.17.1, ajv@^8.18.0:
+ajv@^8.0.0, ajv@^8.18.0:
   version "8.18.0"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.18.0.tgz#8864186b6738d003eb3a933172bb3833e10cefbc"
   integrity sha512-PlXPeEWMXMZ7sPYOHqmDyCJzcfNrUr3fGNKtezX14ykXOEIvyK81d+qydx89KY5O71FKMPaQ2vBfBFI5NHR63A==
@@ -1650,13 +1650,13 @@ minimatch@^9.0.4:
   resolved "https://registry.npmjs.org/minipass/-/minipass-7.1.3.tgz#79389b4eb1bb2d003a9bba87d492f2bd37bdc65b"
   integrity sha512-tEBHqDnIoM/1rXME1zgka9g6Q2lcoCkxHLuc7ODJ5BxbP5d4c2Z5cGgtXAku59200Cx7diuHTOYfSBD8n6mm8A==
 
-moeralib@^0.18.1:
-  version "0.18.1"
-  resolved "https://registry.npmjs.org/moeralib/-/moeralib-0.18.1.tgz#1375cf87cd77b1fdac1b6d62539f3caec8e05e20"
-  integrity sha512-k6HszlxRG8PeYGMBcCpG/m7aFU2rIVKwgTD3b9if6T/7x9bN6DOkEX/aSUzNksPz5p3CI5/J4xaFF4LhGBnbJA==
+moeralib@^0.18.3:
+  version "0.18.3"
+  resolved "https://registry.npmjs.org/moeralib/-/moeralib-0.18.3.tgz#52b53b3f8035993ece10774b05b9c14f7c2e74d4"
+  integrity sha512-Zxx2GFz1dSzgQkPH1vGzRCiwVvjoZd5E1y4ux5maQq27CqC39rPcfqXjbZmS4qdwq8CGArDiEbBe3pg3y0MAJQ==
   dependencies:
     "@scure/bip39" "^1.6.0"
-    ajv "^8.17.1"
+    ajv "^8.18.0"
     ajv-formats "^3.0.1"
     json-rpc-2.0 "^1.7.1"
     lodash.clonedeep "^4.5.0"
