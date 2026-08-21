@@ -1,4 +1,5 @@
 import express, { Express } from 'express';
+import { rateLimit } from 'express-rate-limit';
 import fs from 'fs/promises';
 import * as process from 'process';
 
@@ -11,7 +12,7 @@ export function initApp(): void {
     const port = process.env.PORT;
 
     if (process.env.TRUST_PROXY === "true") {
-        app.set('trust proxy', true);
+        app.set('trust proxy', 1);
     }
     app.use(express.static("public"));
     app.use(express.json({
@@ -22,7 +23,14 @@ export function initApp(): void {
         ]
     }));
 
-    app.get(["/", "/index.html"], async (req, res) => {
+    const indexRateLimiter = rateLimit({
+        windowMs: 60 * 1000,
+        limit: 60,
+        standardHeaders: "draft-8",
+        legacyHeaders: false
+    });
+
+    app.get(["/", "/index.html"], indexRateLimiter, async (req, res) => {
         const view = await fs.readFile("views/index.m.html");
         const endpointUrl = `${req.protocol}://${req.hostname}/moera-push-relay/`;
         const html = view.toString().replace("{{endpointUri}}", endpointUrl)
@@ -34,7 +42,14 @@ export function initApp(): void {
         res.type("txt").send("OK");
     });
 
-    app.post("/moera-push-relay", (req, res) => {
+    const rpcRateLimiter = rateLimit({
+        windowMs: 60 * 1000,
+        limit: 60,
+        standardHeaders: "draft-8",
+        legacyHeaders: false
+    });
+
+    app.post("/moera-push-relay", rpcRateLimiter, (req, res) => {
         try {
             const jsonRPCRequest = req.body;
             rpcService.receive(jsonRPCRequest).then((jsonRPCResponse) => {

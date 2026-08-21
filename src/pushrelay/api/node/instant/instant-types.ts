@@ -41,7 +41,9 @@ import {
     buildSubscriberAddedSummary,
     buildSubscriberDeletedSummary,
     buildUnblockedUserInPostingSummary,
-    buildUnblockedUserSummary
+    buildUnblockedUserSummary,
+    buildVideoCommentPublishedSummary,
+    buildVideoPostingPublishedSummary
 } from "pushrelay/api/node/instant/instant-summaries";
 import { REL_HOME, RelNodeName } from "pushrelay/util/rel-node-name";
 import { ut } from "pushrelay/util/url";
@@ -416,6 +418,26 @@ const INSTANT_TYPES: Record<StoryType, InstantTypeDetails> = {
             nodeName: story.summaryNodeName ?? REL_HOME,
             href: ut`/post/${story.remotePostingId}`
         })
+    },
+    "video-comment-published": {
+        color: "#198754",
+        icon: "ms_videocam",
+        summary: (data, homeOwnerName, t) => buildVideoCommentPublishedSummary(data, t),
+        target: story => ({
+            nodeName: story.remoteNodeName ?? REL_HOME,
+            href: ut`/post/${story.remotePostingId}?comment=${story.remoteCommentId}`
+        }),
+        sheriffFields: ["posting", "comment"]
+    },
+    "video-posting-published": {
+        color: "#198754",
+        icon: "ms_videocam",
+        summary: (data, homeOwnerName, t) => buildVideoPostingPublishedSummary(data, t),
+        target: story => ({
+            nodeName: story.remoteNodeName ?? REL_HOME,
+            href: ut`/post/${story.remotePostingId}`
+        }),
+        sheriffFields: ["posting"]
     },
 };
 

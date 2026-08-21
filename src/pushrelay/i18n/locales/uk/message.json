@@ -60,6 +60,8 @@
   "instant-summary.story.subscriber-deleted": "{node} {gender, select, female {відписалась} other {відписався}} від вашої стрічки {feed}",
   "instant-summary.story.unblocked-user": "{node} {gender, select, female {дозволила} other {дозволив}} вам {operations} {gender, select, female {її} other {його}} пости",
   "instant-summary.story.unblocked-user-in-posting": "{node} {gender, select, female {дозволила} other {дозволив}} вам {operations} {gender, select, female {її} other {його}} пост {heading}",
+  "instant-summary.story.video-comment-published": "Ваш відеокоментар {commentHeading} до допису {node} {postingHeading} опубліковано.",
+  "instant-summary.story.video-posting-published": "Ваш відеодопис {heading} опубліковано.",
   "instant-summary.supported": "{count, plural, =1 {{gender, select, female {схвалила} other {схвалив}}} other {схвалили}}",
   "instant-summary.target-your-blog": "ваш блог",
   "instant-summary.target-your-comment": "ваш коментар {heading} до {posting}",

@@ -8,7 +8,7 @@
 
 ## Installation instructions
 
-1. As prerequisites, you need to have Node.js 18+ and PostgreSQL 9.6+
+1. As prerequisites, you need to have Node.js 18+ and PostgreSQL 12+
    installed. In all major Linux distributions, you can install them from
    the main package repository.
 2. Create a PostgreSQL user `<username>` with password `<password>` and
@@ -22,7 +22,7 @@
    private key that you need to download from the Firebase console.
 5. By default, the server runs on port 8101. If you want it to run on a
    different port, set the `PORT` variable in `.env.local` accordingly.
-6. Run `yarn install` or `npm install`.
-7. Run `yarn start` or `npm start`.
+6. Run `npm install`.
+7. Run `npm start`.
 
 [1]: https://moera.org/administration/installation/create-db.html

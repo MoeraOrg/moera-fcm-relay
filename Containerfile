@@ -2,7 +2,7 @@ FROM node:18-alpine
 
 WORKDIR /app/src
 COPY . .
-RUN yarn install
+RUN npm ci
 RUN apk add --no-cache bash
 RUN scripts/compile
 RUN cp -r node_modules/* target/node_modules/

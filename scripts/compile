@@ -3,7 +3,7 @@
 [ -d target/ ] && rm -r target/
 
 echo 'Compiling TypeScript...'
-yarn tsc || exit 1
+npm run compile || exit 1
 
 echo 'Copying files...'
 find src/ -type f -not -name '*.ts' | \

@@ -60,6 +60,8 @@
   "instant-summary.story.subscriber-deleted": "{node} unsubscribed from your {feed}",
   "instant-summary.story.unblocked-user": "{node} has allowed you {operations} {gender, select, male {his} female {her} other {their}} posts",
   "instant-summary.story.unblocked-user-in-posting": "{node} has allowed you {operations} {gender, select, male {his} female {her} other {their}} post {heading}",
+  "instant-summary.story.video-comment-published": "Your video comment {commentHeading} to {node}'s post {postingHeading} has been published.",
+  "instant-summary.story.video-posting-published": "Your video post {heading} has been published.",
   "instant-summary.supported": "supported",
   "instant-summary.target-your-blog": "your blog",
   "instant-summary.target-your-comment": "your comment {heading} on {posting}",

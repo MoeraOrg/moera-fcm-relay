@@ -60,6 +60,8 @@
   "instant-summary.story.subscriber-deleted": "{node} wypisał się z subskrypcji Twojego {feed}",
   "instant-summary.story.unblocked-user": "{node} pozwolił Ci {operations} na {gender, select, male {jego} female {jej} other {ich}} posty",
   "instant-summary.story.unblocked-user-in-posting": "{node} pozwolił Ci {operations} na {gender, select, male {jego} female {jej} other {ich}} post {heading}",
+  "instant-summary.story.video-comment-published": "Twój komentarz wideo {commentHeading} do posta użytkownika {node} {postingHeading} został opublikowany.",
+  "instant-summary.story.video-posting-published": "Twój post wideo {heading} został opublikowany.",
   "instant-summary.supported": "{count, plural, =1 {{gender, select, female {poparła} other {poparł}}} other {poparły}}",
   "instant-summary.target-your-blog": "twój blog",
   "instant-summary.target-your-comment": "twój komentarz {heading} do {posting}",
