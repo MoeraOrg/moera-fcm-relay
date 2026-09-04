@@ -1,6 +1,6 @@
 {
   "name": "moera-fcm-relay",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "private": true,
   "dependencies": {
     "ajv": "^8.18.0",
@@ -13,7 +13,7 @@
     "i18next-icu": "^2.4.4",
     "intl-messageformat": "^11.2.14",
     "json-rpc-2.0": "^1.7.1",
-    "moeralib": "^0.19.0",
+    "moeralib": "^0.19.1",
     "pg": "^8.23.0",
     "pg-hstore": "^2.3.4",
     "reflect-metadata": "^0.2.2",
